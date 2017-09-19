@@ -1,0 +1,380 @@
+<app-header-title [title]="headerTitle" icon="ti-package" backButton="yes" backLink="invoices/nr-enterprise"></app-header-title>
+
+<div class="content-wrap offset-xs-0 col-xs-12 offset-sm-0 col-sm-12 offset-md-1 col-md-10 offset-xl-1 col-xl-10 animated slideInLeft">
+  <form (ngSubmit)="saveInvoice(invoiceForm)" novalidate [formGroup]="invoiceForm">
+    <div class="row action-row">
+      <div class="col-xl-12">
+          <div class="button-item-add-edit text-xs-right" style="margin-bottom: 15px;">
+              <button class="btn btn-success site-btn" type="submit" [disabled]="waitFlag" *ngIf="!viewMode"><i class="fa fa-check"></i> Save</button>
+              <button class="btn btn-warning site-btn" type="button" *ngIf="!viewMode" (click)="viewMode = !viewMode"><i class="fa fa-file-text"></i> Turn Off Edit Mode</button>
+              <button class="btn btn-success site-btn" type="button" *ngIf="viewMode" (click)="viewMode = !viewMode"><i class="fa fa-edit"></i> Turn On Edit Mode</button>
+              <button class="btn btn-primary site-btn" type="button" *ngIf="viewMode" (click)="print()"><i class="fa fa-print"></i> Print</button>
+          </div>
+      </div>
+    </div>
+    <table cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+          <th class="header-shim"></th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td class="copy-type align-right border-top-none border-bottom-none" colspan="20">
+              <span *ngIf="viewMode">{{invoiceForm.controls.print_type.value}}</span>
+              <div class="form-group radio-inline" *ngIf="!viewMode">  
+                <div class="radio-button">
+                    <input value="ORIGINAL" id="original" formControlName="print_type" type="radio">
+                    <label for="original"></label>
+                    <span>ORIGINAL</span>
+                </div>
+                <div class="radio-button">
+                    <input value="DUPLICATE" id="duplicate" formControlName="print_type" type="radio">
+                    <label for="duplicate"></label>
+                    <span>DUPLICATE</span>
+                </div>
+                <div class="radio-button">
+                    <input value="TRIPLICATE" id="triplicate" formControlName="print_type" type="radio">
+                    <label for="triplicate"></label>
+                    <span>TRIPLICATE</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="tax-invoice-title align-center border-top-none border-bottom-none" colspan="20">TAX INVOICE </td>
+          </tr>
+          <tr>
+            <td class="tax-invoice-subtitle align-center border-top-none" colspan="20">(ISSUED UNDER SEC. 31(1) READ WITH RULE 46 OF CGST RULES, 2017)</td>
+          </tr>
+          <tr>
+            <td class="enterprise-title align-center" colspan="20">N.R. ENTERPRISES.</td>
+          </tr>
+          <tr>
+            <td class="enterprise-address align-center" colspan="20">SURVEY NO.164-1-1 NEAR RAUBA NAGAR,KARAD-DHEBEWADI ROAD MALKAPUR  KARAD INDIA.</td>
+          </tr>
+          <tr>
+            <td colspan="10" class="enterprise-gst-no padding-all-side">
+              GSTIN NO : <span *ngIf="viewMode">{{invoiceForm.controls.gst_in_no.value}}</span>
+              <div class="form-group" *ngIf="!viewMode">                      
+                  <div class="input-group input-right-icon" [class.danger-input]="!invoiceForm.controls.gst_in_no.valid && invoiceForm.dirty" [class.success-input]="invoiceForm.controls.gst_in_no.valid && !invoiceForm.controls.gst_in_no.pristine">
+                    <input class="form-control" type="text" formControlName="gst_in_no" />
+                    <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="invoiceForm.controls.gst_in_no.valid && !invoiceForm.controls.gst_in_no.pristine" [class.fa-times]="!invoiceForm.controls.gst_in_no.valid && invoiceForm.dirty"></i></span>
+                  </div>
+              </div>
+            </td>
+            <td colspan="10" class="work-order-no padding-all-side">
+              WORK ORDER NO./ DATE :  <span *ngIf="viewMode">{{invoiceForm.controls.work_order_no_date.value}}</span>
+              <div class="form-group" *ngIf="!viewMode">                      
+                  <div class="input-group input-right-icon" [class.danger-input]="!invoiceForm.controls.work_order_no_date.valid && invoiceForm.dirty" [class.success-input]="invoiceForm.controls.work_order_no_date.valid && !invoiceForm.controls.work_order_no_date.pristine">
+                    <input class="form-control" type="text" formControlName="work_order_no_date" />
+                    <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="invoiceForm.controls.work_order_no_date.valid && !invoiceForm.controls.work_order_no_date.pristine" [class.fa-times]="!invoiceForm.controls.work_order_no_date.valid && invoiceForm.dirty"></i></span>
+                  </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="state-name padding-all-side" colspan="5">
+              STATE : <span *ngIf="viewMode">{{invoiceForm.controls.state.value}}</span>
+              <div class="form-group" *ngIf="!viewMode">                      
+                  <div class="input-group input-right-icon" [class.danger-input]="!invoiceForm.controls.state.valid && invoiceForm.dirty" [class.success-input]="invoiceForm.controls.state.valid && !invoiceForm.controls.state.pristine">
+                    <input class="form-control" type="text" formControlName="state" />
+                    <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="invoiceForm.controls.state.valid && !invoiceForm.controls.state.pristine" [class.fa-times]="!invoiceForm.controls.state.valid && invoiceForm.dirty"></i></span>
+                  </div>
+              </div>
+            </td>
+            <td class="mode-of-transport padding-all-side" colspan="5">
+              MODE OF TRANSPORT : <br/> <span *ngIf="viewMode">{{invoiceForm.controls.transport_mode.value}}</span>
+              <div class="form-group" *ngIf="!viewMode">                      
+                  <div class="input-group input-right-icon" [class.danger-input]="!invoiceForm.controls.transport_mode.valid && invoiceForm.dirty" [class.success-input]="invoiceForm.controls.transport_mode.valid && !invoiceForm.controls.transport_mode.pristine">
+                    <input class="form-control" type="text" formControlName="transport_mode" />
+                    <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="invoiceForm.controls.transport_mode.valid && !invoiceForm.controls.transport_mode.pristine" [class.fa-times]="!invoiceForm.controls.transport_mode.valid && invoiceForm.dirty"></i></span>
+                  </div>
+              </div>
+            </td>
+            <td class="bill-no padding-all-side" colspan="10">
+              BILL NO : <span *ngIf="viewMode">{{invoiceForm.controls.bill_no.value}}</span>
+              <div class="form-group" *ngIf="!viewMode">                      
+                  <div class="input-group input-right-icon" [class.danger-input]="!invoiceForm.controls.bill_no.valid && invoiceForm.dirty" [class.success-input]="invoiceForm.controls.bill_no.valid && !invoiceForm.controls.bill_no.pristine">
+                    <input class="form-control" type="number" formControlName="bill_no" />
+                    <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="invoiceForm.controls.bill_no.valid && !invoiceForm.controls.bill_no.pristine" [class.fa-times]="!invoiceForm.controls.bill_no.valid && invoiceForm.dirty"></i></span>
+                  </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="state-code padding-all-side" colspan="5">
+              STATE CODE : <span *ngIf="viewMode">{{invoiceForm.controls.state_code.value}}</span>
+              <div class="form-group" *ngIf="!viewMode">                      
+                  <div class="input-group input-right-icon" [class.danger-input]="!invoiceForm.controls.state_code.valid && invoiceForm.dirty" [class.success-input]="invoiceForm.controls.state_code.valid && !invoiceForm.controls.state_code.pristine">
+                    <input class="form-control" type="number" formControlName="state_code" />
+                    <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="invoiceForm.controls.state_code.valid && !invoiceForm.controls.state_code.pristine" [class.fa-times]="!invoiceForm.controls.state_code.valid && invoiceForm.dirty"></i></span>
+                  </div>
+              </div>
+            </td>
+            <td class="vehicle-no padding-all-side" colspan="5">
+              VEHICLE NO : <span *ngIf="viewMode">{{invoiceForm.controls.vehicle_no.value}}</span>
+              <div class="form-group" *ngIf="!viewMode">                      
+                  <div class="input-group input-right-icon" [class.danger-input]="!invoiceForm.controls.vehicle_no.valid && invoiceForm.dirty" [class.success-input]="invoiceForm.controls.vehicle_no.valid && !invoiceForm.controls.vehicle_no.pristine">
+                    <input class="form-control" type="text" formControlName="vehicle_no" />
+                    <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="invoiceForm.controls.vehicle_no.valid && !invoiceForm.controls.vehicle_no.pristine" [class.fa-times]="!invoiceForm.controls.vehicle_no.valid && invoiceForm.dirty"></i></span>
+                  </div>
+              </div>
+            </td>
+            <td class="invoice-date padding-all-side" colspan="10">
+              DATE : <span *ngIf="viewMode">{{invoiceForm.controls.invoice_date.value}}</span>
+              <div class="form-group" *ngIf="!viewMode">                      
+                  <div class="input-group input-right-icon" [class.danger-input]="!invoiceForm.controls.invoice_date.valid && invoiceForm.dirty" [class.success-input]="invoiceForm.controls.invoice_date.valid && !invoiceForm.controls.invoice_date.pristine">
+                    <input class="form-control" type="text" formControlName="invoice_date" datePicker dateFormat="d.m.Y" />
+                    <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="invoiceForm.controls.invoice_date.valid && !invoiceForm.controls.invoice_date.pristine" [class.fa-times]="!invoiceForm.controls.invoice_date.valid && invoiceForm.dirty"></i></span>
+                  </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="wip-job-no-text padding-all-side" colspan="8">REF. BUYER J.W. DELIVERY CHALLAN NO : </td>
+            <td class="wip-job-no padding-all-side align-center bold-text" colspan="12">{{jobNumbers}}</td>
+          </tr>     
+
+          <tr>
+            <td class="bold-text align-center padding-all-side" colspan="10">BILL TO PARTY (BUYER)</td>
+            <td class="bold-text align-center padding-all-side" colspan="10">SHIP TO PARTY (CONSIGNEE)</td>
+          </tr>   
+
+          <tr>
+            <td class="padding-all-side" colspan="10" formGroupName="bill_to_party">
+              <div>
+                <label>NAME:</label> <span *ngIf="viewMode">{{invoiceForm.controls.bill_to_party.controls.name.value}}</span>
+                <div class="form-group" *ngIf="!viewMode">                      
+                    <div class="input-group input-right-icon" [class.danger-input]="!invoiceForm.controls.bill_to_party.controls.name.valid && invoiceForm.dirty" [class.success-input]="invoiceForm.controls.bill_to_party.controls.name.valid && !invoiceForm.controls.bill_to_party.controls.name.pristine">
+                      <input class="form-control" type="text" formControlName="name" />
+                      <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="invoiceForm.controls.bill_to_party.controls.name.valid && !invoiceForm.controls.bill_to_party.controls.name.pristine" [class.fa-times]="!invoiceForm.controls.bill_to_party.controls.name.valid && invoiceForm.dirty"></i></span>
+                    </div>
+                </div>
+              </div>      
+              <div>
+                <label>ADDRESS:</label> <span *ngIf="viewMode">{{invoiceForm.controls.bill_to_party.controls.address.value}}</span>
+                <div class="form-group" *ngIf="!viewMode">                      
+                    <div class="input-group input-right-icon" [class.danger-input]="!invoiceForm.controls.bill_to_party.controls.address.valid && invoiceForm.dirty" [class.success-input]="invoiceForm.controls.bill_to_party.controls.address.valid && !invoiceForm.controls.bill_to_party.controls.address.pristine">
+                      <input class="form-control" type="text" formControlName="address" />
+                      <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="invoiceForm.controls.bill_to_party.controls.address.valid && !invoiceForm.controls.bill_to_party.controls.address.pristine" [class.fa-times]="!invoiceForm.controls.bill_to_party.controls.address.valid && invoiceForm.dirty"></i></span>
+                    </div>
+                </div>
+              </div>                                           
+              <div>
+                <label>GSTIN NO:</label> <span *ngIf="viewMode">{{invoiceForm.controls.bill_to_party.controls.gst_in_no.value}}</span>
+                <div class="form-group" *ngIf="!viewMode">                      
+                    <div class="input-group input-right-icon" [class.danger-input]="!invoiceForm.controls.bill_to_party.controls.gst_in_no.valid && invoiceForm.dirty" [class.success-input]="invoiceForm.controls.bill_to_party.controls.gst_in_no.valid && !invoiceForm.controls.bill_to_party.controls.gst_in_no.pristine">
+                      <input class="form-control" type="text" formControlName="gst_in_no" />
+                      <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="invoiceForm.controls.bill_to_party.controls.gst_in_no.valid && !invoiceForm.controls.bill_to_party.controls.gst_in_no.pristine" [class.fa-times]="!invoiceForm.controls.bill_to_party.controls.gst_in_no.valid && invoiceForm.dirty"></i></span>
+                    </div>
+                </div>
+              </div>              
+            </td>
+            <td class="padding-all-side" colspan="10" formGroupName="ship_to_party">
+              <div>
+                <label>NAME:</label> <span *ngIf="viewMode">{{invoiceForm.controls.ship_to_party.controls.name.value}}</span>
+                <div class="form-group" *ngIf="!viewMode">                      
+                    <div class="input-group input-right-icon" [class.danger-input]="!invoiceForm.controls.ship_to_party.controls.name.valid && invoiceForm.dirty" [class.success-input]="invoiceForm.controls.ship_to_party.controls.name.valid && !invoiceForm.controls.ship_to_party.controls.name.pristine">
+                      <input class="form-control" type="text" formControlName="name" />
+                      <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="invoiceForm.controls.ship_to_party.controls.name.valid && !invoiceForm.controls.ship_to_party.controls.name.pristine" [class.fa-times]="!invoiceForm.controls.ship_to_party.controls.name.valid && invoiceForm.dirty"></i></span>
+                    </div>
+                </div>
+              </div>      
+              <div>
+                <label>ADDRESS:</label> <span *ngIf="viewMode">{{invoiceForm.controls.ship_to_party.controls.address.value}}</span>
+                <div class="form-group" *ngIf="!viewMode">                      
+                    <div class="input-group input-right-icon" [class.danger-input]="!invoiceForm.controls.ship_to_party.controls.address.valid && invoiceForm.dirty" [class.success-input]="invoiceForm.controls.ship_to_party.controls.address.valid && !invoiceForm.controls.ship_to_party.controls.address.pristine">
+                      <input class="form-control" type="text" formControlName="address" />
+                      <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="invoiceForm.controls.ship_to_party.controls.address.valid && !invoiceForm.controls.ship_to_party.controls.address.pristine" [class.fa-times]="!invoiceForm.controls.ship_to_party.controls.address.valid && invoiceForm.dirty"></i></span>
+                    </div>
+                </div>
+              </div>                                           
+              <div>
+                <label>GSTIN NO:</label> <span *ngIf="viewMode">{{invoiceForm.controls.ship_to_party.controls.gst_in_no.value}}</span>
+                <div class="form-group" *ngIf="!viewMode">                      
+                    <div class="input-group input-right-icon" [class.danger-input]="!invoiceForm.controls.ship_to_party.controls.gst_in_no.valid && invoiceForm.dirty" [class.success-input]="invoiceForm.controls.ship_to_party.controls.gst_in_no.valid && !invoiceForm.controls.ship_to_party.controls.gst_in_no.pristine">
+                      <input class="form-control" type="text" formControlName="gst_in_no" />
+                      <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="invoiceForm.controls.ship_to_party.controls.gst_in_no.valid && !invoiceForm.controls.ship_to_party.controls.gst_in_no.pristine" [class.fa-times]="!invoiceForm.controls.ship_to_party.controls.gst_in_no.valid && invoiceForm.dirty"></i></span>
+                    </div>
+                </div>
+              </div>            
+            </td>
+          </tr>
+
+          <tr>
+            <td class="align-center padding-all-side" colspan="5" formGroupName="bill_to_party">
+              STATE : <span *ngIf="viewMode">{{invoiceForm.controls.bill_to_party.controls.state.value}}</span>
+                <div class="form-group" *ngIf="!viewMode">                      
+                    <div class="input-group input-right-icon" [class.danger-input]="!invoiceForm.controls.bill_to_party.controls.state.valid && invoiceForm.dirty" [class.success-input]="invoiceForm.controls.bill_to_party.controls.state.valid && !invoiceForm.controls.bill_to_party.controls.state.pristine">
+                      <input class="form-control align-center" type="text" formControlName="state" />
+                      <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="invoiceForm.controls.bill_to_party.controls.state.valid && !invoiceForm.controls.bill_to_party.controls.state.pristine" [class.fa-times]="!invoiceForm.controls.bill_to_party.controls.state.valid && invoiceForm.dirty"></i></span>
+                    </div>
+                </div>
+            </td>
+            <td class="align-center padding-all-side" colspan="5" formGroupName="bill_to_party">
+              CODE : <span *ngIf="viewMode">{{invoiceForm.controls.bill_to_party.controls.state_code.value}}</span>
+                <div class="form-group" *ngIf="!viewMode">                      
+                    <div class="input-group input-right-icon" [class.danger-input]="!invoiceForm.controls.bill_to_party.controls.state_code.valid && invoiceForm.dirty" [class.success-input]="invoiceForm.controls.bill_to_party.controls.state_code.valid && !invoiceForm.controls.bill_to_party.controls.state_code.pristine">
+                      <input class="form-control align-center" type="number" formControlName="state_code" />
+                      <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="invoiceForm.controls.bill_to_party.controls.state_code.valid && !invoiceForm.controls.bill_to_party.controls.state_code.pristine" [class.fa-times]="!invoiceForm.controls.bill_to_party.controls.state_code.valid && invoiceForm.dirty"></i></span>
+                    </div>
+                </div>
+            </td>
+            <td class="align-center padding-all-side" colspan="5" formGroupName="ship_to_party">
+              STATE : <span *ngIf="viewMode">{{invoiceForm.controls.ship_to_party.controls.state.value}}</span>
+                <div class="form-group" *ngIf="!viewMode">                      
+                    <div class="input-group input-right-icon" [class.danger-input]="!invoiceForm.controls.ship_to_party.controls.state.valid && invoiceForm.dirty" [class.success-input]="invoiceForm.controls.ship_to_party.controls.state.valid && !invoiceForm.controls.ship_to_party.controls.state.pristine">
+                      <input class="form-control align-center" type="text" formControlName="state" />
+                      <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="invoiceForm.controls.ship_to_party.controls.state.valid && !invoiceForm.controls.ship_to_party.controls.state.pristine" [class.fa-times]="!invoiceForm.controls.ship_to_party.controls.state.valid && invoiceForm.dirty"></i></span>
+                    </div>
+                </div>
+            </td>
+            <td class="align-center padding-all-side" colspan="5" formGroupName="ship_to_party">
+              CODE : <span *ngIf="viewMode">{{invoiceForm.controls.ship_to_party.controls.state_code.value}}</span>
+                <div class="form-group" *ngIf="!viewMode">                      
+                    <div class="input-group input-right-icon" [class.danger-input]="!invoiceForm.controls.ship_to_party.controls.state_code.valid && invoiceForm.dirty" [class.success-input]="invoiceForm.controls.ship_to_party.controls.state_code.valid && !invoiceForm.controls.ship_to_party.controls.state_code.pristine">
+                      <input class="form-control align-center" type="number" formControlName="state_code" />
+                      <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="invoiceForm.controls.ship_to_party.controls.state_code.valid && !invoiceForm.controls.ship_to_party.controls.state_code.pristine" [class.fa-times]="!invoiceForm.controls.ship_to_party.controls.state_code.valid && invoiceForm.dirty"></i></span>
+                    </div>
+                </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="20">
+              <table class="item-details-table">
+                <thead>
+                  <tr>
+                    <th class="align-center" rowspan="2">S.N.</th>
+                    <th class="align-center" rowspan="2">DESCRIPTION OF SERVICE</th>
+                    <th class="align-center" rowspan="2">SAC CODE</th>
+                    <th class="align-center" rowspan="2">QTY</th>
+                    <th class="align-center" rowspan="2">UNIT</th>
+                    <th class="align-center" rowspan="2">RATE</th>
+                    <th class="align-center" rowspan="2">TOTAL</th>
+                    <th class="align-center" rowspan="2">TAXABLE VALUE</th>
+                    <th class="align-center border-bottom" colspan="2">CGST</th>
+                    <th class="align-center border-bottom" colspan="2">SGST</th>
+                    <th class="align-center" rowspan="2">TOTAL</th>
+                  </tr>
+                  <tr>
+                    <th class="align-center">RATE</th>
+                    <th class="align-center">AMT</th>
+                    <th class="align-center">RATE</th>
+                    <th class="align-center">AMT</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let job of invoiceForm.controls.order_jobs.controls; let srNo = index" [jobDetailsRow]="job" [viewMode]="viewMode" [srNo]="srNo" [invoiceFormGroup]="invoiceForm" (removeJob)="removeJob($event)">
+                  </tr>
+
+                  <tr *ngIf="!viewMode">
+                    <td class="padding-all-side align-right border-left-none border-right-none" colspan="13">
+                      <button class="btn btn-primary site-btn" type="button" (click)="addJob()">+</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="padding-all-side border-none blank-space" colspan="13"></td>
+                  </tr>
+
+                  <tr>
+                    <td class="padding-all-side align-right border-left-none" colspan="7">TOTAL</td>
+                    <td class="padding-all-side align-center">{{taxableTotalAmount | number: '.2-2'}}</td>
+                    <td class="padding-all-side align-center"></td>
+                    <td class="padding-all-side align-center">{{cGstAmount | number: '.2-2'}}</td>
+                    <td class="padding-all-side align-center"></td>
+                    <td class="padding-all-side align-center">{{cGstAmount | number: '.2-2'}}</td>
+                    <td class="padding-all-side align-center border-right-none">{{gstTotalAmount | number: '.2-2'}}</td>
+                  </tr>
+
+                  <tr>
+                    <td class="padding-all-side align-left border-left-none" colspan="4">INVOICE TOTAL ( IN WORDS ) :</td>
+                    <td class="padding-all-side align-center border-right-none" colspan="9" style="text-transform: uppercase;">
+                      {{invoiceForm.controls.gst_total_amount_words.value}}
+                    </td>
+                  </tr>
+
+                  <tr class="declaration-sign-row">
+                    <td class="padding-all-side align-left border-left-none" colspan="8">
+                      DECLARATION: <span *ngIf="viewMode">{{invoiceForm.controls.declaration.value}}</span>
+                      <div class="form-group" *ngIf="!viewMode">                      
+                          <div class="input-group">
+                            <textarea class="form-control declaration-textarea" formControlName="declaration"></textarea>
+                          </div>
+                      </div>
+                    </td>
+                    <td class="padding-all-side align-right border-right-none" colspan="5">
+                      FOR N.R ENTERPRISE<br/><br/><br/><br/><br/>               
+                      PROPRIETOR
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="padding-all-side align-center border-none" colspan="13">NOTE: TO BE ISSUED AT THE TIME OF SUPPLY OF TAXABLE GOODS</td>
+                  </tr>
+              
+
+                </tbody>
+              </table>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    <input type="hidden" formControlName="id" *ngIf="!viewMode" />
+
+    <!--<pre>
+      {{invoiceForm.value | json}}
+    </pre>-->
+
+    <div class="row action-row">
+      <div class="col-xl-12">
+          <div class="button-item-add-edit text-xs-right" style="margin-top: 15px;">
+              <button class="btn btn-success site-btn" type="submit" [disabled]="waitFlag" *ngIf="!viewMode"><i class="fa fa-check"></i> Save</button>
+              <button class="btn btn-warning site-btn" type="button" *ngIf="!viewMode" (click)="viewMode = !viewMode"><i class="fa fa-file-text"></i> Turn Off Edit Mode</button>
+              <button class="btn btn-success site-btn" type="button" *ngIf="viewMode" (click)="viewMode = !viewMode"><i class="fa fa-edit"></i> Turn On Edit Mode</button>
+              <button class="btn btn-primary site-btn" type="button" *ngIf="viewMode" (click)="print()"><i class="fa fa-print"></i> Print</button>
+          </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="modal fade ordersModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="ordersModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-xs-center" id="ordersModalTitle">ADD WIP JOB</h5>
+      </div>
+      <div class="modal-body">
+        <app-orders inModel="true" [showHeader]="showOrdersHeader" [addNewOrderBtn]="addNewOrderBtn" 
+        [showRowCheckbox]="showOrdersRowCheckbox" [showActionColumn]="showOrdersActionColumn" (selectedOrders)="selectedOrders($event)"></app-orders>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal" [disabled]="waitJobAdding">CLOSE</button>
+        <button type="button" class="btn btn-primary" [disabled]="waitJobAdding" (click)="addSelectedJobOrders()">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

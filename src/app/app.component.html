@@ -1,0 +1,17 @@
+<div class="wrapper">
+    <app-header></app-header>
+
+    <section id="main" class="container-fluid">
+        <div class="row">
+            <app-sidebar></app-sidebar>
+
+            <section id="content-wrapper" [class.sidebar-hide]="isSidebarToggle">
+                <router-outlet></router-outlet>
+            </section>
+        </div>
+    </section>
+
+    <footer id="footer" [class.sidebar-hide]="isSidebarToggle">
+        Copyright© 2017, All Rights Reserved.
+    </footer>
+</div>

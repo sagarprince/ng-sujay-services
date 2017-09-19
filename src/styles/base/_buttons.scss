@@ -1,0 +1,1278 @@
+/*----------------------------------------------
+
+START BUTTONS
+
+------------------------------------------------*/
+
+/* START BUTTON ROUND CSS */
+.rounded-admin {
+  button {
+    &.btn {
+      border-radius: $border-radius-default;
+      &:hover {
+        border-radius: $border-radius-default;
+      }
+    }
+  }
+
+  .search-overlay .search_box .search-div,.search-overlay .search_box{
+    border-radius: 50px;
+  }
+
+  a {
+    &.btn, &.btn-hover-animation {
+      &:before{
+        border-radius: $border-radius-default;
+      }
+      border-radius: $border-radius-default;
+      &:hover {
+        border-radius: $border-radius-default;
+      }
+    }
+  }
+
+  button {
+    &.btn-icon, &.btn-social-icon {
+      border-radius: $border-radius-full-round;
+      &.social-facebook {
+        padding: 12px 16px;
+      }
+      &.social-twitter {
+        padding: 7px 11px;
+      }
+      &.social-googleplus {
+        padding: 4px 6px;
+      }
+      &:hover {
+        border-radius: $border-radius-full-round;
+      }
+    }
+    &.btn-social-icon {
+      height: 48px;
+      padding: $spacing-0;
+      text-align: $text-center;
+      width: 48px;
+      &:hover {
+        text-align: $text-center;
+      }
+    }
+  }
+}
+/* END BUTTON ROUND CSS */
+
+.dropdown-button-section {
+  overflow: inherit;
+}
+
+.btn {
+  font-size: 15px;
+  &.btn-outline-primary {
+    &:hover, &.focus, &:focus, &.active, &:active {
+      color: $white-text-color;
+    }
+  }
+  &:hover, &:active, &:focus {
+    outline:0 none;
+  }
+}
+
+.btn-border-animation {
+  position: $position-relative;
+  &.btn {
+    border: none;
+    background: $gray-background-color;
+  }
+  &.btn-primary-border {
+    &:hover {
+      background: transparent;
+    }
+  }
+  &:before, &:after {
+    content: '';
+    border-style: solid;
+    position: $position-absolute;
+    box-sizing: content-box;
+    @include transition(all 0.3s);
+  }
+
+  &:before {
+    width: 0;
+    height: 100%;
+    border-width: 1px 0 1px 0;
+    top: -1px;
+    left: 0;
+  }
+
+  &:after {
+    width: 100%;
+    height: 0;
+    border-width: 0 1px 0 1px;
+    top: 0;
+    left: -1px;
+  }
+  &:hover {
+
+    &:before {
+      width: 100%;
+    }
+
+    &:after {
+      height: 100%;
+    }
+  }
+}
+
+.btn-fill-horizontal {
+  position: $position-relative;
+  &.btn {
+    border: none;
+    background: $gray-background-color;
+    opacity: 0.999;
+  }
+  &.btn-primary-fill-horizontal {
+    &:hover {
+      color: $secondary-text-color;
+    }
+  }
+  &:before, &:after {
+    content: '';
+    width: 0;
+    height: 100%;
+    position: $position-absolute;
+    top: 0;
+    z-index: -1;
+    @include transition(all 0.3s);
+  }
+
+  &:before {
+    left: 50%;
+  }
+
+  &:after {
+    right: 50%;
+  }
+
+  &:hover {
+
+    &:before, &:after {
+      width: 50%;
+      opacity: 1;
+    }
+  }
+}
+
+.btn-fill-vertical {
+  position: $position-relative;
+  &.btn {
+    border: none;
+    background: $gray-background-color;
+    opacity: 0.999;
+  }
+  &.btn-primary-fill-vertical {
+    &:hover {
+      color: $secondary-text-color;
+    }
+  }
+  &:before, &:after {
+    content: '';
+    width: 100%;
+    height: 0;
+    position: $position-absolute;
+    left: 0;
+    z-index: -1;
+    @include transition(all 0.3s);
+  }
+
+  &:before {
+    top: 50%;
+  }
+
+  &:after {
+    bottom: 50%;
+  }
+
+  &:hover {
+
+    &:before, &:after {
+      height: 50%;
+      opacity: 1;
+    }
+  }
+}
+
+.btn-hover-animation {
+  color: $secondary-text-color;
+  padding: $spacing-10 $spacing-20;
+  margin: 3px 2px;
+  &:hover, &:focus {
+    color: $secondary-text-color;
+  }
+  &.hvr-icon-drop, &.hvr-icon-pulse-grow, &.hvr-icon-bounce, &.hvr-icon-grow-rotate, &.hvr-icon-wobble-horizontal {
+    padding-right: $spacing-35;
+  }
+}
+
+.btn-icon-hover {
+  margin: 3px 2px;
+  overflow: hidden;
+  &.btn {
+    position: $position-relative;
+  }
+  &:before {
+    left: 0;
+    top: -100%;
+    position: $position-absolute;
+    height: 100%;
+    width: 100%;
+    line-height: 34px;
+    font-size: 22px;
+    @include transition(all 0.3s);
+    font-family: 'FontAwesome';
+  }
+  &:hover {
+    &:before {
+      top: 0;
+      z-index: 1;
+    }
+    span {
+      @include transform(translateY(300%));
+    }
+  }
+  &.icon-cart {
+    &:before {
+      content: "\f218";
+    }
+  }
+  &.icon-remove {
+    &:before {
+      content: "\f1f8";
+    }
+  }
+  &.icon-cog {
+    &:before {
+      content: "\f085";
+    }
+  }
+  span {
+    display: inline-block;
+    @include transition(all 0.3s);
+    letter-spacing: 0;
+  }
+}
+
+.btn-lg {
+  &.btn-social {
+    padding: $spacing-0;
+    padding-right: 14px;
+    margin-right: $buttons-spacing-10;
+    i {
+      padding: 15px 14px;
+      margin-right: 11px;
+      display: inline-block;
+      @include background-rgba($black-background-color, 0.15);
+      vertical-align: middle;
+    }
+  }
+}
+
+.btn-default {
+  &.btn-social {
+    padding: $spacing-0;
+    padding-right: $spacing-10;
+    margin-right: $buttons-spacing-10;
+    i {
+      padding: $spacing-10;
+      margin-right: $spacing-10;
+      display: inline-block;
+      @include background-rgba($black-background-color, 0.15);
+      vertical-align: middle;
+    }
+  }
+}
+
+.btn-sm {
+  &.btn-social {
+    padding: $spacing-0;
+    padding-right: 6px;
+    margin-right: $buttons-spacing-10;
+    i {
+      padding: 6px;
+      margin-right: 6px;
+      display: inline-block;
+      @include background-rgba($black-background-color, 0.15);
+      vertical-align: middle;
+    }
+  }
+}
+
+.btn-xs {
+  padding: 4px 6px;
+  font-size: 12px;
+  margin-right: $buttons-spacing-10;
+  &.btn-social {
+    padding: $spacing-0;
+    padding-right: 6px;
+    i {
+      padding: 6px;
+      margin-right: 6px;
+      display: inline-block;
+      @include background-rgba($black-background-color, 0.15);
+      vertical-align: middle;
+    }
+  }
+}
+
+.btn-group {
+  &.btn-icon-top {
+    .btn {
+      padding: $spacing-10 27px;
+    }
+    i {
+      display: block;
+      margin-bottom: 2px;
+    }
+  }
+}
+
+.btn-group-spacing {
+  margin-right: $buttons-spacing-15;
+  &:last-child {
+    margin-right: $spacing-0;
+  }
+}
+
+.btn-margin {
+  .btn {
+    margin: 3px 2px;
+    position: $position-relative;
+  }
+}
+
+.hvr-trim {
+  &:before {
+    border: 2px solid $secondary-text-color;
+    bottom: 2px;
+    left: 2px;
+    right: 2px;
+    top: 2px;
+  }
+}
+
+.hvr-outline-out, .hvr-outline-in {
+  &:hover, &:focus, &:active {
+    &:before {
+      top: -4px;
+      right: -4px;
+      bottom: -4px;
+      left: -4px;
+    }
+  }
+}
+
+.btn, .btn-lg, .btn-sm {
+  @include border-radius($border-radius-0);
+}
+
+.btn-round-left {
+  @include border-radius(50px 0 0 50px);
+}
+
+.btn-round-right {
+  @include border-radius(0 50px 50px 0);
+}
+
+.btn-social-icon {
+  border: 1px solid $light-gray-background-color;
+}
+
+.social-facebook {
+  color: $white-text-color;
+  background: $social-facebook-background-color;
+}
+
+.social-twitter {
+  color: $white-text-color;
+  background: $social-twitter-background-color;
+}
+
+.social-googleplus {
+  color: $white-text-color;
+  background: $social-googleplus-background-color;
+}
+
+.social-flickr {
+  color: $white-text-color;
+  background: $social-flickr-background-color;
+}
+
+.social-amazon {
+  color: $white-text-color;
+  background: $social-amazon-background-color;
+}
+
+.social-android {
+  color: $social-android-background-color;
+  background: $white-text-color;
+}
+
+.social-dribbble {
+  color: $white-text-color;
+  background: $social-dribbble-background-color;
+}
+
+.social-drupal {
+  color: $white-text-color;
+  background: $social-edge-background-color;
+}
+
+.social-edge {
+  color: $social-edge-background-color;
+  background: $white-text-color;
+}
+
+.social-forumbee {
+  color: $white-text-color;
+  background: $social-android-background-color;
+}
+
+.social-github {
+  color: $white-text-color;
+  background: $black-background-color;
+}
+
+.social-html5 {
+  color: $white-text-color;
+  background: $social-html5-background-color;
+}
+
+.social-instagram {
+  color: $white-text-color;
+  background: $social-instagram-background-color;
+}
+
+.social-jsfiddle {
+  color: $social-edge-background-color;
+  background: $white-text-color;
+}
+
+.social-linkedin {
+  color: $white-text-color;
+  background: $social-edge-background-color;
+}
+
+.social-maxcdn {
+  color: $white-text-color;
+  background: $social-html5-background-color;
+}
+
+.social-opera {
+  color: $social-opera-background-color;
+  background: $white-text-color;
+}
+
+.social-pinterest {
+  color: $white-text-color;
+  background: $social-opera-background-color;
+}
+
+.social-reddit {
+  color: $social-html5-background-color;
+  background: $white-text-color;
+}
+
+.social-skype {
+  color: $white-text-color;
+  background: $social-skype-background-color;
+}
+
+.social-snapchat {
+  color: $white-text-color;
+  background: $social-snapchat-background-color;
+}
+
+.btn-dropdown {
+  .dropdown {
+    display: inline-block;
+  }
+}
+
+.btn-switch {
+  i {
+    margin-right: $spacing-15;
+  }
+}
+
+.dropdown-menu {
+  a {
+    font-size: 14px;
+  }
+}
+
+#outline-buttons{
+  button{
+    &.btn{
+      &.btn-outline-secondary{
+        &:focus{
+          color: $primary-hover-text-color;
+        }
+      }
+      &:focus{
+        color: $secondary-text-color;
+      }
+    }
+  }
+
+}
+/*---- Waves Effect ----*/
+
+
+/*---- Jelly Effect radio and checkbox ----*/
+@-webkit-keyframes icon-beat {
+  0% {
+    -webkit-transform: scale(2);
+    -ms-transform: scale(2);
+    transform: scale(2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes icon-beat {
+  0% {
+    -webkit-transform: scale(2);
+    -ms-transform: scale(2);
+    transform: scale(2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.check-radio-box {
+  display: block;
+  position: $position-relative;
+  padding: 0 0 $spacing-10 0;
+  line-height: 28px;
+  font-weight: $font-style-normal;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  i {
+    display: inline-block;
+    height: 25px;
+    position: $position-relative;
+    top: 6px;
+    font-style: $font-style-normal;
+    color: $small-tag-text-color;
+  }
+  span {
+    display: inline-block;
+    margin-left: 5px;
+    line-height: 25px;
+    color: $small-tag-text-color;
+  }
+}
+
+#checkbox-buttons {
+  .form-horizontal,
+  .form-vertical {
+    float: $left-division;
+    width: 30%;
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    input[type="checkbox"] + i:before {
+      font-family: 'FontAwesome';
+      font-size: 28px;
+      height: 25px;
+      width: 25px;
+      display: inline-block;
+    }
+
+    input[type="checkbox"]:checked + i {
+      position: relative;
+      -webkit-animation: icon-beat 0.1s ease;
+      animation: icon-beat 0.1s ease;
+    }
+
+    input[type="checkbox"]:checked + i + span {
+      -webkit-transition: all 0.1s ease;
+      transition: all 0.1s ease;
+    }
+
+    input[type="checkbox"] + i:before {
+      content: "\f096";
+    }
+
+    input[type="checkbox"]:checked + i:before {
+      content: "\f046";
+    }
+
+  }
+
+  .form-vertical {
+    .continput {
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: auto;
+        li {
+          position: $position-relative;
+          padding: $spacing-0 $spacing-10 $spacing-0 $spacing-40;
+          height: 30px;
+          label.radio-button {
+            &:before {
+              content: "";
+              width: 11px;
+              height: 11px;
+              position: $position-absolute;
+              left: -36px;
+              box-sizing: border-box;
+              border-radius: $border-radius-circle;
+              top: 9px;
+            }
+          }
+          .bullet {
+            position: $position-relative;
+            width: 25px;
+            height: 25px;
+            left: -3px;
+            top: 2px;
+            opacity: 0;
+            border-radius: $border-radius-circle;
+            .line {
+              position: $position-absolute;
+              width: 10px;
+              height: 2px;
+              opacity: 0;
+            }
+
+            .line {
+              &.zero {
+                left: 11px;
+                top: -21px;
+                transform: translateY(20px);
+                width: 2px;
+                height: 10px;
+              }
+            }
+
+            .line {
+              &.one {
+
+              }
+              right: -7px;
+              top: -11px;
+              transform: rotate(-55deg) translate(-9px);
+            }
+
+            .line {
+              &.two {
+                right: -20px;
+                top: 11px;
+                transform: translate(-9px);
+              }
+            }
+
+            .line {
+              &.three {
+                right: -8px;
+                top: 35px;
+                transform: rotate(55deg) translate(-9px);
+              }
+            }
+
+            .line {
+              &.four {
+                left: -8px;
+                top: -11px;
+                transform: rotate(55deg) translate(9px);
+              }
+            }
+
+            .line {
+              &.five {
+                left: -20px;
+                top: 11px;
+                transform: translate(9px);
+              }
+            }
+
+            .line {
+              &.six {
+                left: -8px;
+                top: 35px;
+                transform: rotate(-55deg) translate(9px);
+              }
+            }
+
+            .line {
+              &.seven {
+                left: 11px;
+                bottom: -21px;
+                transform: translateY(-20px);
+                width: 2px;
+                height: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+    input[type="radio"] {
+      opacity: 0;
+      -webkit-appearance: none;
+      display: inline-block;
+      vertical-align: middle;
+      z-index: 100;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 30px;
+      position: $position-absolute;
+      left: 0;
+      top: calc(50% - 15px);
+      cursor: $text-link;
+    }
+
+    input[type="radio"]:checked ~ .bullet {
+      position: $position-absolute;
+      opacity: 1;
+      animation-name: explode;
+      animation-duration: 0.350s;
+    }
+
+    input[type="radio"]:checked ~ .bullet .line.zero {
+      animation-name: drop-zero;
+      animation-delay: 0.100s;
+      animation-duration: 0.9s;
+      animation-fill-mode: forwards;
+    }
+
+    input[type="radio"]:checked ~ .bullet .line.one {
+      animation-name: drop-one;
+      animation-delay: 0.100s;
+      animation-duration: 0.9s;
+      animation-fill-mode: forwards;
+    }
+
+    input[type="radio"]:checked ~ .bullet .line.two {
+      animation-name: drop-two;
+      animation-delay: 0.100s;
+      animation-duration: 0.9s;
+      animation-fill-mode: forwards;
+    }
+
+    input[type="radio"]:checked ~ .bullet .line.three {
+      animation-name: drop-three;
+      animation-delay: 0.100s;
+      animation-duration: 0.9s;
+      animation-fill-mode: forwards;
+    }
+
+    input[type="radio"]:checked ~ .bullet .line.four {
+      animation-name: drop-four;
+      animation-delay: 0.100s;
+      animation-duration: 0.9s;
+      animation-fill-mode: forwards;
+    }
+
+    input[type="radio"]:checked ~ .bullet .line.five {
+      animation-name: drop-five;
+      animation-delay: 0.100s;
+      animation-duration: 0.9s;
+      animation-fill-mode: forwards;
+    }
+
+    input[type="radio"]:checked ~ .bullet .line.six {
+      animation-name: drop-six;
+      animation-delay: 0.100s;
+      animation-duration: 0.9s;
+      animation-fill-mode: forwards;
+    }
+
+    input[type="radio"]:checked ~ .bullet .line.seven {
+      animation-name: drop-seven;
+      animation-delay: 0.100s;
+      animation-duration: 0.9s;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes explode {
+      0% {
+        opacity: 0;
+        transform: scale(10);
+      }
+      60% {
+        opacity: 1;
+        transform: scale(0.5);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes drop-zero {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+        height: 10px;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-2px);
+        height: 0px;
+        opacity: 0;
+      }
+    }
+
+    @keyframes drop-one {
+      0% {
+        opacity: 0;
+        transform: rotate(-55deg) translate(-20px);
+        width: 10px;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(-55deg) translate(9px);
+        width: 0px;
+        opacity: 0;
+      }
+    }
+
+    @keyframes drop-two {
+      0% {
+        opacity: 0;
+        transform: translate(-20px);
+        width: 10px;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate(9px);
+        width: 0px;
+        opacity: 0;
+      }
+    }
+
+    @keyframes drop-three {
+      0% {
+        opacity: 0;
+        transform: rotate(55deg) translate(-20px);
+        width: 10px;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(55deg) translate(9px);
+        width: 0px;
+        opacity: 0;
+      }
+    }
+
+    @keyframes drop-four {
+      0% {
+        opacity: 0;
+        transform: rotate(55deg) translate(20px);
+        width: 10px;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(55deg) translate(-9px);
+        width: 0px;
+        opacity: 0;
+      }
+    }
+
+    @keyframes drop-five {
+      0% {
+        opacity: 0;
+        transform: translate(20px);
+        width: 10px;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-9px);
+        width: 0px;
+        opacity: 0;
+      }
+    }
+
+    @keyframes drop-six {
+      0% {
+        opacity: 0;
+        transform: rotate(-55deg) translate(20px);
+        width: 10px;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(-55deg) translate(-9px);
+        width: 0px;
+        opacity: 0;
+      }
+    }
+
+    @keyframes drop-seven {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+        height: 10px;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(2px);
+        height: 0px;
+        opacity: 0;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+.site-checkbox input[type="checkbox"],
+.site-radio input[type="checkbox"],
+.site-checkbox input[type="radio"],
+.site-radio input[type="radio"] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: $position-absolute;
+  width: 1px;
+}
+
+.site-checkbox input[type="checkbox"]:focus + label:before,
+.site-radio input[type="checkbox"]:focus + label:before,
+.site-checkbox input[type="radio"]:focus + label:before,
+.site-radio input[type="radio"]:focus + label:before,
+.site-checkbox input[type="checkbox"]:hover + label:before,
+.site-radio input[type="checkbox"]:hover + label:before,
+.site-checkbox input[type="radio"]:hover + label:before,
+.site-radio input[type="radio"]:hover + label:before {
+  background-color: #f2f2f2;
+}
+
+.site-checkbox input[type="checkbox"]:active + label:before,
+.site-radio input[type="checkbox"]:active + label:before,
+.site-checkbox input[type="radio"]:active + label:before,
+.site-radio input[type="radio"]:active + label:before {
+  transition-duration: 0s;
+}
+
+.site-checkbox input[type="checkbox"] + label,
+.site-radio input[type="checkbox"] + label,
+.site-checkbox input[type="radio"] + label,
+.site-radio input[type="radio"] + label {
+  position: relative;
+  padding-left: 2em;
+  vertical-align: middle;
+  user-select: none;
+  cursor: pointer;
+}
+
+.site-checkbox input[type="checkbox"] + label:before,
+.site-radio input[type="checkbox"] + label:before,
+.site-checkbox input[type="radio"] + label:before,
+.site-radio input[type="radio"] + label:before {
+  box-sizing: content-box;
+  content: '';
+  position: $position-absolute;
+  top: 50%;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  margin-top: -9px;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.site-checkbox input[type="checkbox"] + label:after,
+.site-radio input[type="checkbox"] + label:after,
+.site-checkbox input[type="radio"] + label:after,
+.site-radio input[type="radio"] + label:after {
+  box-sizing: content-box;
+  content: '';
+  position: $position-absolute;
+  top: 50%;
+  left: 4px;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  transform: scale(0);
+  transform-origin: 50%;
+  transition: transform 200ms ease-out;
+}
+
+.site-checkbox input[type="checkbox"]:disabled + label:before,
+.site-radio input[type="checkbox"]:disabled + label:before,
+.site-checkbox input[type="radio"]:disabled + label:before,
+.site-radio input[type="radio"]:disabled + label:before {
+  border-color: $light-gray-color;
+}
+
+.site-checkbox input[type="checkbox"]:disabled:focus + label:before,
+.site-radio input[type="checkbox"]:disabled:focus + label:before,
+.site-checkbox input[type="radio"]:disabled:focus + label:before,
+.site-radio input[type="radio"]:disabled:focus + label:before,
+.site-checkbox input[type="checkbox"]:disabled:hover + label:before,
+.site-radio input[type="checkbox"]:disabled:hover + label:before,
+.site-checkbox input[type="radio"]:disabled:hover + label:before,
+.site-radio input[type="radio"]:disabled:hover + label:before {
+  background-color: inherit;
+}
+
+.site-checkbox input[type="checkbox"]:disabled:checked + label:before,
+.site-radio input[type="checkbox"]:disabled:checked + label:before,
+.site-checkbox input[type="radio"]:disabled:checked + label:before,
+.site-radio input[type="radio"]:disabled:checked + label:before {
+  background-color: $light-gray-background-color;
+}
+
+.site-checkbox input[type="checkbox"] + label:after,
+.site-radio input[type="checkbox"] + label:after {
+  background-color: transparent;
+  top: 50%;
+  left: 4px;
+  width: 8px;
+  height: 3px;
+  margin-top: -4px;
+  border-style: solid;
+  border-color: $secondary-text-color;
+  border-width: 0 0 $border-radius-3 $border-radius-3;
+  border-image: none;
+  transform: rotate(-45deg) scale(0);
+}
+
+.site-checkbox input[type="checkbox"]:checked + label:after,
+.site-radio input[type="checkbox"]:checked + label:after {
+  content: '';
+  transform: rotate(-45deg) scale(1);
+  transition: transform 200ms ease-out;
+}
+
+.site-checkbox input[type="radio"]:checked + label:before,
+.site-radio input[type="radio"]:checked + label:before {
+  animation: borderscale 300ms ease-in;
+  background-color: $white-background-color;
+}
+
+.site-checkbox input[type="radio"]:checked + label:after,
+.site-radio input[type="radio"]:checked + label:after {
+  transform: scale(1);
+}
+
+.site-checkbox input[type="radio"] + label:before,
+.site-radio input[type="radio"] + label:before,
+.site-checkbox input[type="radio"] + label:after,
+.site-radio input[type="radio"] + label:after {
+  border-radius: 50%;
+}
+
+.site-checkbox input[type="checkbox"]:checked + label:before,
+.site-radio input[type="checkbox"]:checked + label:before {
+  animation: borderscale 200ms ease-in;
+}
+
+.site-checkbox input[type="checkbox"]:checked + label:after,
+.site-radio input[type="checkbox"]:checked + label:after {
+  transform: rotate(-45deg) scale(1);
+}
+
+@keyframes borderscale {
+  50% {
+    box-shadow: 0 0 0 20px rgba(0,0,0,0.1);
+  }
+}
+
+.checkbox-list {
+  float: $left-division;
+  width: 40%;
+  padding: 0;
+  li {
+    list-style-type: none;
+    padding-bottom: $spacing-10;
+    &:last-child {
+      padding-bottom: $spacing-0;
+    }
+  }
+}
+
+/* badge button */
+
+.button-tag-section {
+  .btn{
+    &:hover{
+      border: 1px solid transparent;
+    }
+  }
+  .button-tag {
+    position: $position-relative;
+    margin-right: $badges-spacing-15;
+  }
+}
+.badges-tag {
+  border: 2px solid $secondary-text-color;
+  border-radius: $border-radius-8;
+  height: 12px;
+  right: $badges-minus-spacing-5;
+  top: $badges-minus-spacing-5;
+  position: $position-absolute;
+  width: 12px;
+  z-index: 99;
+}
+.left-tag {
+  left: $badges-minus-spacing-5;
+  right: auto;
+  background: $info-background-color;
+}
+.bottom-right-tag {
+  bottom: $badges-minus-spacing-5;
+  left: auto;
+  right: $badges-minus-spacing-5;
+  top: auto;
+  background: $danger-background-color;
+}
+.bottom-left-tag {
+  bottom: $badges-minus-spacing-5;
+  left: $badges-minus-spacing-5;
+  right: auto;
+  top: auto;
+  background: $warning-background-color;
+}
+
+/* end badge button */
+
+/*----------------------------------------------
+
+END BUTTONS
+
+------------------------------------------------*/
+
+/*---- START BUTTONS RESPONSIVE ----*/
+@media (max-width: $media-xl-width) {
+  .button-tag-section .button-tag{
+    margin-bottom : 10px;
+  }
+}
+
+@media (max-width: $media-lg-width) {
+  #checkbox-buttons{
+    .form-horizontal, .form-vertical {
+      width: 50%;
+    }
+  }
+}
+
+@media (max-width: $media-md-width) {
+  .wrapper {
+    .btn-group {
+      .btn {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: $media-sm-width) {
+  .wrapper {
+    .btn-group {
+      .btn {
+        font-size: 14px;
+      }
+    }
+  }
+  .btn-group {
+    &.btn-icon-top {
+      .btn {
+        padding: $spacing-10 $spacing-25;
+      }
+    }
+  }
+  .form-horizontal, .form-vertical, .checkbox-list {
+    width: 100%;
+    padding-bottom: $spacing-15;
+  }
+  .form-vertical {
+    padding-bottom: $spacing-0;
+  }
+  .checkbox-list {
+    &:last-child {
+      padding-bottom: $spacing-0;
+    }
+  }
+}
+
+@media (max-width: $media-xs-width) {
+  .btn-group-vertical {
+    .btn {
+      font-size: 14px;
+      padding: $spacing-10 9px;
+    }
+  }
+  .btn-group-icon {
+    .btn {
+      padding: $spacing-10 8px;
+      font-size: 12px;
+    }
+  }
+  .btn-group {
+    &.btn-icon-top {
+      .btn {
+        padding: $spacing-10 16px;
+        font-size: 14px;
+      }
+    }
+  }
+  .btn-lg {
+    &.btn-social {
+      i {
+        padding: $spacing-15 $spacing-10;
+        margin-right: $spacing-5;
+      }
+    }
+  }
+  .btn-lg {
+    &.btn-social {
+      padding-right: $spacing-5;
+    }
+  }
+  .btn-hover-animation {
+    padding: $spacing-10 8px;
+    margin-right: $spacing-5;
+    font-size: 14px;
+  }
+  .btn-round-left,.btn-round-right{
+    font-size: 13px;
+  }
+  #checkbox-buttons .form-horizontal, #checkbox-buttons .form-vertical{
+    width: 100%;
+  }
+}
+
+/*---- END BUTTONS RESPONSIVE ----*/

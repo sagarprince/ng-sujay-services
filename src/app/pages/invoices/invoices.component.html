@@ -1,0 +1,25 @@
+<app-header-title title="Invoices" icon="ti-receipt"></app-header-title>
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="add-order-btn float-xs-right">
+                <a class="btn btn-primary site-btn" [routerLink]="['invoice/add']">
+                    <i class="icon icon_plus"></i> Add New Invoice
+                </a>
+            </div>
+
+            <div class="divider15"></div>
+
+            <data-tables [rows]="invoices" [columns]="columns" [showRowCheckbox]="showRowCheckbox" (refreshRecords)="refreshInvoices()" (editRecord)="editInvoice($event)" (deleteRecord)="deleteInvoice($event)">
+                <div class="search-filters row" custom-filters>
+                    <div class="col-sm-4 col-xl-3">
+                        <div class="inner">                
+                            <input type="text" class="form-control" value="" placeholder="Invoice Date" autocomplete="false" datePicker [allowInput]="editableDatePicker" #searchRecordsInputs />
+                        </div>
+                    </div>
+                </div>
+            </data-tables>
+        </div>
+    </div>
+</div>

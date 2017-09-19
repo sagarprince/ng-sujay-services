@@ -1,0 +1,24 @@
+<div class="alert alert-icon-left animated slideInRight" [class.alert-success]="type=='success'" 
+[class.alert-primary]="type=='info'"
+[class.alert-primary]="type=='loading'"  
+[class.alert-warning]="type=='warning'" 
+[class.alert-danger]="type=='error'" role="alert">
+    <i *ngIf="type == 'success'">
+      <span class="fa fa-check"></span>
+    </i>
+    <i *ngIf="type == 'info'">
+      <span class="fa fa-pencil"></span>
+    </i>
+    <i *ngIf="type == 'warning'">
+      <span class="fa fa-info-circle"></span>
+    </i>
+    <i *ngIf="type == 'error'">
+      <span class="fa fa-times-circle"></span>
+    </i>
+    <i *ngIf="type == 'loading'">
+      <span class="fa fa-cog fa-spin"></span>
+    </i>
+    <div class="float-xs-left">
+        {{message}}
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="pagination_with_gap text-xs-right">
+    <ul class="pagination" *ngIf="pagesCount > 0">
+        <li class="page-item">
+            <a href="javascript:void(0)" class="page-link next-previous-link pagination_link" aria-label="Previous" (click)="previousPage()">
+                <span aria-hidden="true">«</span>
+            </a>
+        </li>
+        <!--<li class="page-item" [class.active-page]="page == currentPage" *ngFor="let page of pages">
+          <a href="javascript:void(0)" class="page-link pagination_link" (click)="selectPage(page)">{{page}}</a>
+        </li>-->
+        <li class="page-item" *ngIf="editPageNumber == false">
+          <a href="javascript:void(0)" class="page-link pagination_link" (click)="this.editPageNumber = !this.editPageNumber">Page {{currentPage}} of {{pages.length}}</a>
+        </li>
+
+        <li class="page-item" *ngIf="editPageNumber == true">
+          <input type="text" value="{{currentPage}}" (blur)="editPageNumber=false" (change)="selectPage($event.target.value)" />
+        </li>
+
+        <li class="page-item">
+            <a href="javascript:void(0)" class="page-link next-previous-link pagination_link" aria-label="Next" (click)="nextPage()">
+                <span aria-hidden="true">»</span>
+            </a>
+        </li>
+    </ul>
+</div>

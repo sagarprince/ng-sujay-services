@@ -1,0 +1,198 @@
+@import "../../../../styles/_variables_mixins";
+
+.table-filter-row {
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+    .row {      
+      &:last-child {
+        margin-top: 15px;
+      }
+    }
+
+    label {
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    select {
+        font-size: 13px;
+        height: auto;
+        min-height: initial;
+        padding: 5px 5px;
+        border-radius: 0px;
+    }
+
+    input {
+        font-size: 13px;
+        height: auto;
+        min-height: initial;
+        padding: 7px 10px 6px;
+        border-radius: 0px;
+    }
+
+    .form-control {
+      height: 39px;
+    }
+
+    .filter-refresh-btn-wrap {
+      .btn {
+        line-height: 23px;
+      }
+
+      .filter-btn {
+        width: 150px;
+      }
+
+      .refresh-btn {
+        width: 70px;
+        margin-left: 10px;
+      }
+    }
+}
+
+.loading-wait-row {
+  .loader {
+    width: 50px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+}
+
+.basic_table {
+  overflow-x: auto;
+  border: 2px solid #039be5;
+
+  .table {
+    margin-bottom: 0;
+    
+    thead {
+        th {
+            background-color: #039be5;
+            color: #FFFFFF;
+            text-align: center;
+            border-top: 0 none;
+
+            &.select-row-th {
+              padding-left: 22px;
+            }
+        }
+    }
+
+    tbody {
+        td {
+            text-align: center;
+            padding: 18px 0px;
+
+            &.select-row {
+              padding-left: 22px;
+              padding-right: 20px;
+              width: 26px;
+
+              .radio-button label {
+                border-radius: 0px;
+
+                &:after {
+                  top: 6px;
+                  left: 6px;
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 0px;
+                }
+              }
+            }
+
+            &.action-td {
+                .btn {
+                    padding: 1px 0px 0px;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 100%;
+
+                    &.btn-danger {
+                        margin-left: 5px;
+                        padding: 3px 0px 0px;
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+    }
+  }
+  .table-bordered {
+    border-color: $basic-tbl-border-color;
+    th, td {
+      border-color: $basic-tbl-border-color;
+    }
+    thead {
+      th {
+        border: none;
+      }
+    }
+  }
+  table {
+    tfoot {
+      tr {
+        th {
+          color: $white-text-color;
+        }
+      }
+    }
+  }
+  .table-responsive {
+    display: inline-table;
+  }
+  .basic_table_icon {
+    margin-right: $spacing-10;
+    color: #868686;
+    cursor: $text-link;
+  }
+  .table-reflow {
+    td, th {
+      padding:8px 12px;
+    }
+  }
+}
+
+/*----------------------------------------------
+
+END BASIC TABLE PAGE STYLE
+
+------------------------------------------------*/
+/*---- START RESPONSIVE ----*/
+@media (max-width: 1800px) {
+  .basic_table {
+    .table-reflow {
+      thead {
+        float: $without-float-division;
+      }
+      tbody {
+        display: table-row-group;
+      }
+      tr {
+        float: $without-float-division;
+        td, th {
+          display: table-cell !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $media-sm-width) {
+}
+
+@media (max-width: 610px) {
+  .basic_table {
+    .table-reflow {
+      &.table-responsive {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (max-width: $media-xs-width) {
+}

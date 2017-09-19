@@ -1,0 +1,31 @@
+@import "../../../../../styles/_variables_mixins";
+
+td {
+    border: 2px solid #222;
+    font-family: $secondary-font;
+    font-weight: 500;
+
+    &.border-left-none {
+        border-left: 0 none!important;
+    }
+
+    &.border-right-none {
+        border-right: 0 none!important;
+    }
+
+    &.service_description {
+        .item_code {
+            border-bottom: 2px solid #222;
+        }
+        .item_name {
+            border-bottom: 2px solid #222;
+        }
+        .item_code, .item_name, .job_no {
+            padding: 5px 0px 3px;
+        }
+    }
+
+    .form-group {
+        margin: 0px;
+    }
+}

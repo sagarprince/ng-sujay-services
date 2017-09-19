@@ -1,0 +1,21 @@
+/*----------------------------------------------
+
+START FORM VALIDATION
+
+------------------------------------------------*/
+.help-block {
+  display: block;
+  &.form-error{
+    color: $danger-color;
+  }
+}
+.file-control-upload {
+  &.has-error{
+    border-color: rgb(185, 74, 72);
+  }
+}
+/*----------------------------------------------
+
+END FORM VALIDATION
+
+------------------------------------------------*/

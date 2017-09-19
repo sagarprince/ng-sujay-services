@@ -1,0 +1,174 @@
+/*----------------------------------------------
+
+START ICONS
+
+------------------------------------------------*/
+
+.icon-height {
+  height: 105px;
+  i {
+    font-size: $icons-font-size;
+    margin-bottom: $icons-spacing-10;
+  }
+}
+
+.icon-size {
+  text-align: center;
+  width: 19%;
+  display: inline-block;
+  h2 {
+    font-size: 30px;
+  }
+}
+
+/*---- START-THEMFIY ----*/
+.themify-icon, .stroke-icons {
+  .icon-height {
+    height: 125px;
+    span {
+      &:first-child {
+        font-size: $icons-font-size;
+      }
+    }
+    .icon-name {
+      display: block;
+      margin-top: $icons-spacing-10;
+      letter-spacing: 0;
+    }
+  }
+}
+
+.ti-lg {
+  font-size: 1.33em;
+}
+
+.ti-2x {
+  font-size: 2em;
+}
+
+.ti-3x {
+  font-size: 3em;
+}
+
+.ti-4x {
+  font-size: 4em;
+}
+
+.ti-5x {
+  font-size: 5em;
+}
+
+/*---- START WEATHER ----*/
+.weather-icon {
+  .icon-height {
+    height: 125px;
+    i {
+      font-size: $icons-font-size;
+      margin-bottom: $icons-spacing-10;
+      display: block;
+    }
+  }
+}
+
+.wi-lg {
+  font-size: 1.33em;
+}
+
+.wi-2x {
+  font-size: 2em;
+}
+
+.wi-3x {
+  font-size: 3em;
+}
+
+.wi-4x {
+  font-size: 4em;
+}
+
+.wi-5x {
+  font-size: 5em;
+}
+
+/*---- START-MATERIAL ----*/
+.material-icon {
+  .icon-height {
+    height: 115px;
+    i {
+      font-size: $icons-font-size;
+      display: block;
+      margin: auto;
+      margin-bottom: $icons-spacing-10;
+    }
+  }
+}
+
+/*----------------------------------------------
+
+END ICONS
+
+------------------------------------------------*/
+
+/*---- START ICONS RESPONSIVE ----*/
+@media (min-width: $media-lg-width) and (max-width: $media-xl-width) {
+  .icon-height {
+    width: 12.333%;
+  }
+  h1 {
+    .icon-title {
+      font-size: 32px;
+    }
+  }
+  h2 {
+    .icon-title {
+      font-size: 30px;
+    }
+  }
+}
+
+@media (max-width: $media-sm-width) {
+  .icon-size {
+    width: 32%;
+    margin-bottom: $spacing-15;
+  }
+  .icon-height {
+    height: auto;
+    min-height: 90px;
+  }
+  .themify-icon, .stroke-icons {
+    .icon-height {
+      height: auto;
+      min-height: 90px;
+    }
+  }
+  .material-icon, .weather-icon {
+    .icon-height {
+      height: auto;
+      min-height: 90px;
+    }
+  }
+}
+
+@media (max-width: $media-xs-width) {
+  .icon-size {
+    width: 49%;
+  }
+  .weather-icon {
+    .icon-height {
+      height: 125px;
+      span {
+        font-size: 12px;
+      }
+    }
+  }
+  .themify-icon, .stroke-icons, .material-icon {
+    .icon-height {
+      min-height: 110px;
+      .icon-name {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+/*---- END ICONS RESPONSIVE ----*/

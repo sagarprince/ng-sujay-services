@@ -1,0 +1,12 @@
+<aside id="sidebar" [class.sidebar-hide]="isSidebarToggle">
+  <div class="sidebar-menu">
+    <ul class="nav site-menu" id="site-menu">
+      <li routerLinkActive="active" *ngFor="let menu of menus">
+          <a [routerLink]="menu.link">
+              <i class="{{menu.icon}}"></i>
+              <span>{{menu.title}}</span>
+          </a>
+      </li>
+    </ul>
+  </div>
+</aside>

@@ -1,0 +1,124 @@
+/*----------------------------------------------
+
+UTILITIES PAGE STYLE
+
+------------------------------------------------*/
+.utilities_main{
+  table{
+    width: 100%;
+    max-width: 100%;
+    th,td{
+      padding: $spacing-15 $spacing-10;
+    }
+  }
+  .table-responsive{
+    display: inline-table;
+  }
+  .utilities_vertical_output{
+    &.table-responsive{
+      display: inline-table;
+    }
+  }
+}
+
+.utilities_table{
+  border: 1px solid $utilities-table-border-color;
+  thead{
+    tr{
+      th{
+        border: none;
+        vertical-align: top;
+      }
+    }
+  }
+  th,td {
+    border: 1px solid $utilities-table-border-color;
+    padding: $spacing-15 $spacing-15;
+  }
+  tr{
+    code{
+      background: none;
+      padding: $spacing-0;
+
+    }
+    p{
+      padding-bottom: $spacing-0;
+    }
+  }
+  .is-visible{
+    color: $utilities-visible-text-color;
+    background-color: $utilities-visible-background;
+    font-weight: $bold-text;
+  }
+  .is-hidden{
+    color: $light-gray-color;
+    background-color: $utilities-hidden-background;
+    font-weight: $bold-text;
+  }
+  tbody{
+    tr{
+      &:nth-of-type(odd){
+        background-color: $mail-contain-hover-background;
+      }
+    }
+  }
+}
+.utilities_title{
+  font-size: 16px;
+  line-height: 24px;
+  p{
+    font-size: 12px;
+    font-weight: normal;
+  }
+}
+.utilities_main{
+  .table{
+    margin-bottom: $spacing-0;
+  }
+}
+.utilities_border{
+  img{
+    width: 100px;
+    height: 100px;
+  }
+}
+.utilities_vertical_output {
+  td {
+    height: 200px;
+  }
+  .align-text-bottom{
+    vertical-align: bottom !important;
+  }
+}
+
+
+/*----------------------------------------------
+
+END UTILITIES PAGE STYLE
+
+------------------------------------------------*/
+/*---- START RESPONSIVE ----*/
+
+@media ( max-width: $media-xs-width ) {
+  .utilities_border{
+    img {
+      width: 70px;
+      height: 70px;
+    }
+  }
+  .tab-title-xs{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 70px;
+  }
+  .utilities_border img{
+    height: auto;
+    width: 40px;
+  }
+  .utilities_title{
+    font-size: 14px;
+  }
+}
+/*---- END RESPONSIVE ----*/
+

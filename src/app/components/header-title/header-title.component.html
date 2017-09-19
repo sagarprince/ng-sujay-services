@@ -1,0 +1,4 @@
+<div class="site-content-title">
+  <div class="back-button" *ngIf="backButton == 'yes'" (click)="back()"><i class="fa fa-angle-left"></i></div>
+  <h2 class="float-xs-left content-title-main" [class.has-back-button]="backButton == 'yes'"><i class="title-icon {{icon}}" *ngIf="icon != ''"></i> {{title}}</h2>
+</div>

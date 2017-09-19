@@ -1,0 +1,455 @@
+//Border Radius
+$border-radius-0: 0;
+$border-radius-2: 2px;
+$border-radius-3: 3px;
+$border-radius-4: 4px;
+$border-radius-5: 5px;
+$border-radius-8: 8px;
+$border-radius-10: 10px;
+$border-radius-20: 20px;
+$border-radius-60: 60px;
+$border-radius-100: 100px;
+$border-radius-circle: 50%;
+$border-radius-full-circle: 100%;
+
+//Template-Colors
+$site-light-red-color:   #eb6d6d !default;
+$site-purple-color:      #6d5cae !default;
+$site-dodger-blue-color: #039be5 !default;
+$site-soft-orange-color: #F2784B !default;
+$site-golden-color:      #F3C200 !default;
+$site-bright-pink-color: #ec407a !default;
+$site-spice-color:       #6d4c41 !default;
+
+//Background
+$main-site-background-color:       #f5f5f5 !default;
+$primary-background-color:         #087380 !default;
+$navigation-dark-background-color: #292929 !default;
+$primary-background-hover-color:   lighten($primary-background-color, 5%);
+$primary-background-hover-light-color:  lighten($primary-background-hover-color, 10%);
+$primary-dark-background-color:    darken($primary-background-color, 12%);
+$secondary-background-color:       #333333 !default;
+$gray-background-color:            #e9e9e9 !default;
+$white-background-color:           #FFFFFF !default;
+$template-deactivate-color:        #f1f1f1 !default;
+$form-top-circle-background-color: #42423e !default;
+$black-background-color:           #000 !default;
+$light-gray-background-color:      #ccc !default;
+$success-background-color:         #5cb85c !default;
+$warning-background-color:         #f0ad4e !default;
+$danger-background-color:          #d9534f !default;
+$info-background-color:            #5bc0de !default;
+$search-block-background-color:    lighten($gray-background-color, 3%);
+$nav-light-background-color:       #FFFFFF !default;
+$message-block-background-color:   #E5E5E5 !default;
+$mail-contain-hover-background:    #eeeeee !default;
+$mail-border-color:                #dedcdc !default;
+$mail-sidebar_border:              #c1c1c1 !default;
+$progress-bar-vertical-background: $mail-contain-hover-background;
+$utilities-visible-background:     #dff0d8 !default;
+$utilities-hidden-background:      #f9f9f9 !default;
+$utilities-table-border-color:     $gray-background-color !default;
+$ribbon-box-background-color:      #ededed !default;
+$simple-ribbon-background-color:   #f82772 !default;
+$simple-ribbon-border-color:      darken($simple-ribbon-background-color, 20%);
+$folded-ribbon-background-color:   #c94700 !default;
+$folded-ribbon-border-color:      lighten($folded-ribbon-background-color, 5%);
+$full-width-ribbon-color:          #8D96ED !default;
+$sticky-ribbon-color:             #79a70a !default;
+$side-ribbon-color:               #F44336 !default;
+$side-ribbon-border-color:        darken($side-ribbon-color, 15%);
+$step_background_color:           #e0e0e0 !default;
+$step_border_color:               #757575 !default;
+$testimonial-background-color:    $ribbon-box-background-color;
+$nav-background-color:            $mail-contain-hover-background;
+$nav-border-color:                #d6d6d6 !default;
+$bootstrap-tbl-border-color:      $mail-border-color !default;
+$bootstrap-tbl-star-icon-color:   #ff7015 !default;
+$basic-tbl-border-color:          $mail-border-color !default;
+$image-cropping-background:       #e4e4e4 !default;
+$image-cropping-border-color:     #e7e7e7 !default;
+$menu-input-background:           #0b1115 !default;
+$menu-light-input-background:     #dfdfdf !default;
+$header-online-background:        #0faf0f !default;
+$header-offline-background:        #f73636 !default;
+$header-search-background:        #CBCBCB !default;
+$menu-open-background :           #444444 !default;
+
+//Social
+$social-facebook-background-color: #3b5998 !default;
+$social-twitter-background-color:  #55acee !default;
+$social-googleplus-background-color:#dd4b39 !default;
+$social-flickr-background-color:   #ff0084 !default;
+$social-amazon-background-color:   #f90 !default;
+$social-android-background-color:  #9C0 !default;
+$social-dribbble-background-color: #E24D87 !default;
+$social-edge-background-color:     #0272BA !default;
+$social-html5-background-color:    #F16528 !default;
+$social-instagram-background-color:#8843BD !default;
+$social-opera-background-color:    #F5182A !default;
+$social-skype-background-color:    #00AFF0 !default;
+$social-snapchat-background-color: #EFE200 !default;
+
+//Color
+$primary-text-color:               #333333 !default;
+$primary-hover-text-color:         #000000 !default;
+$secondary-text-color:             #FFFFFF !default;
+$site-primary-text-color:          #087380 !default;
+$small-tag-text-color:             #777777 !default;
+$form-error-text-color:            #f84343 !default;
+$light-gray-text-color:            #999999 !default;
+$success-color:                    #5cb85c !default;
+$warning-color:                    #f0ad4e !default;
+$tabs-border-color:                #dddddd !default;
+$white-text-color:                 $secondary-text-color !default;
+$black-text-color:                 $primary-hover-text-color !default;
+$header-message-text-color:        #5d5d5d !default;
+$light-gray-color:                 #CCCCCC !default;
+$info-color :                      #5bc0de !default;
+$danger-color :                    #d9534f !default;
+$chat-time-color:                  #D8D8D8 !default;
+$utilities-visible-text-color:     #468847 !default;
+$utilities-title-text-color:       #e9e9e9 !default;
+$round-ribbon-border-color:        #222 !default;
+$step_text_color:                  #9e9b9b !default;
+$carousel-control-color:           #929292 !default;
+$header-subtitle-color:            #6C6C6C !default;
+$dropdown-toggle-color:            #868686 !default;
+$static-icon-color:                $dropdown-toggle-color !default;
+$widget-footer-icon-color:         $small-tag-text-color !default;
+$default-text-color:               #818a91 !default;
+$header-right-gray-color :         $light-gray-text-color !default;
+$blue-text-color:                  #3366cc !default;
+$light-green-text-color:           #66aa00 !default;
+$site-menu-light-text-color:       #636363 !default;
+$file-manager-primary-color:       #dedcdc !default;
+$pricing-table-border-color:       #6f6f6f !default;
+$crm-dashboard-chart-color:        #b4bfc3 !default;
+$youtube-line-color:               #b91f1f !default;
+
+//Site-different-background-colors
+$primary-light-background-color:    lighten($primary-background-color, 17%) !default;
+$success-light-background-color:    lighten($success-background-color, 25%) !default;
+$warning-light-background-color:    lighten($warning-background-color, 25%) !default;
+$danger-light-background-color:     lighten($danger-background-color, 25%) !default;
+$info-light-background-color:       lighten($info-background-color, 25%) !default;
+
+
+//Site-different-text-colors
+$primary-light-text :        $site-primary-text-color !default;
+$success-light-text :        $success-color !default;
+$warning-light-text :        $warning-color !default;
+$danger-light-text  :        $danger-color !default;
+$info-light-text    :        $info-color !default;
+
+
+//Fonts-Size
+$small-tag-font-size: 65% !default;
+$table-small-tag-font-size: 90% !default;
+
+//Fonts-Style
+$font-style-normal: normal !default;
+
+//Header-Height
+$header-height: 50px !default;
+
+//text-link
+$text-link:pointer !default;
+
+//Text-Capitalize
+$text-uppercase:uppercase !default;
+
+//Site settings
+$site-setting-icon-font-size: 25px;
+$site-setting-title-icon-font-size: 17px;
+$site-setting-color-inner-box-line-height:45px;
+$site-setting-texture-switch-height:20px;
+$site-settings-open-icon-right-position: 260px;
+
+//Spacing
+$spacing-0:  0;
+$spacing-5:  5px;
+$spacing-10: 10px;
+$spacing-15: 15px;
+$spacing-20: 20px;
+$spacing-25: 25px;
+$spacing-30: 30px;
+$spacing-35: 35px;
+$spacing-40: 40px;
+$spacing-45: 45px;
+$spacing-50: 50px;
+$spacing-60: 60px;
+$spacing-70: 70px;
+$spacing-80: 80px;
+$spacing-90: 90px;
+$spacing-105: 105px;
+$spacing-120: 120px;
+$spacing-130: 130px;
+$spacing-140: 140px;
+$spacing-150: 150px;
+$spacing-190: 190px;
+$spacing-200: 200px;
+$spacing-250: 250px;
+$spacing-270: 270px;
+$spacing-300: 300px;
+
+//Line-Height
+$paragraph-lineheight: 26px;
+$listing-lineheight:   26px;
+
+//Text
+$text-left:left;
+$text-center:center;
+$text-right:right;
+
+//Position
+$position-absolute:absolute;
+$position-relative:relative;
+$position-fixed:fixed;
+
+//left
+$left-division:left;
+$right-division:right;
+$without-float-division:none;
+
+//Blockquote-Font
+$blockquote-text-size: 16px;
+
+//Text-Weight
+$light-text:  100;
+$normal-text: normal;
+$semi-bold-text: 500;
+$semi-font-weight: 400;
+$bold-text:   700;
+
+//Responsive Spacing
+$spacing-md-0:  0px;
+$spacing-lg-0:  0px;
+$spacing-sm-0:  0px;
+$spacing-xs-0:  0px;
+$spacing-xl-0:  0px;
+
+//Font-Family
+$primary-font: 'Roboto Slab', sans-serif;
+// $primary-font:    'PT Sans Caption', sans-serif;
+$secondary-font:  'Roboto', sans-serif;
+$tertiary-font:   'Open Sans', sans-serif;
+$fourth-font: 'PT Sans Caption', sans-serif;
+
+//right-side
+$right-size-collapsed: 260px;
+
+//responsive-media-width
+$media-xl-width: 1366px;
+$media-lg-width: 1199px;
+$media-md-width: 991px;
+$media-sm-width: 767px;
+$media-xs-width: 479px;
+
+//navigation menu
+$navigation-menu-width: 250px;
+$navigation-nav-menu-icon-width: 70px;
+$navigation-menu-border-color: #474747;
+$navigation-menu-color: #a1a1a1;
+$navigation-sidebar-extra-background: #292929;
+$navigation-main-menu-color: #474747;
+$nav-light-box-shaddow: #e1e1e1;
+$megamenu-title-border: #dedede;
+$nav-text-color: #3e3e3e;
+$left-icon-menu-width : 130px;
+//Mobile Spacing
+$desktop-xl-spacing:15px;
+$tablet-lg-spacing :25px;
+$tablet-md-spacing :25px;
+$mobile-sm-spacing :15px;
+$mobile-xs-spacing :35px;
+
+//Utilities
+
+
+//Profile
+$profile-spacing-5:  5px;
+$profile-spacing-10: 10px;
+$profile-spacing-15: 15px;
+$profile-spacing-20: 20px;
+$profile-spacing-51: 51px;
+$profile-spacing-35: 35px;
+$profile-spacing-40: 40px;
+
+//Footer
+$footer-content-width: 250px;
+
+/*-- Userlist --*/
+$userlist-spacing-5:  5px;
+$userlist-spacing-10: 10px;
+$userlist-spacing-15: 15px;
+$userlist-spacing-20: 20px;
+$userlist-spacing-30: 30px;
+
+/*-- Map --*/
+$map-height: 350px;
+$map-height-responsive: 250px;
+
+/*-- Icons --*/
+$icons-spacing-10: 10px;
+$icons-font-size: 25px;
+
+/*-- Buttons --*/
+$buttons-spacing-10: 10px;
+$buttons-spacing-15: 15px;
+$buttons-spacing-20: 20px;
+
+/*-- Images --*/
+$images-spacing-10: 10px;
+$images-spacing-15: 15px;
+$images-spacing-20: 20px;
+
+/*-- Tabs --*/
+$tabs-spacing-15: 15px;
+$border-bottom-right-radius-4: 4px;
+$border-top-left-radius-0: 0px;
+$border-top-left-radius-5: 5px;
+$border-top-right-radius-0: 0px;
+
+/*-- Calendar --*/
+$calendar-spacing-5: 5px;
+$calendar-spacing-9: 9px;
+$calendar-spacing-15: 15px;
+$calendar-spacing-10: 10px;
+$calendar-spacing-20: 20px;
+$calendar-spacing-25: 25px;
+$calendar-spacing-35: 35px;
+$calendar-height:425px;
+$calendar-orange-color: #eda10d !default;
+$calendar-green-color: #188509 !default;
+
+/*-- Cards --*/
+$cards-spacing-5: 5px;
+$cards-spacing-10: 10px;
+$cards-spacing-15: 15px;
+$cards-spacing-20: 20px;
+$cards-spacing-25: 25px;
+
+/*-- Dropdown --*/
+$dropdown-spacing-5: 5px;
+$dropdown-spacing-10: 10px;
+$dropdown-spacing-15: 15px;
+$dropdown-spacing-20: 20px;
+$dropdown-spacing-25: 25px;
+$dropdown-spacing-30: 30px;
+$dropdown-spacing-50: 50px;
+$dropdown-spacing-40: 40px;
+
+/*-- Badges --*/
+$badges-spacing-5: 5px;
+$badges-spacing-10: 10px;
+$badges-spacing-15: 15px;
+$badges-spacing-20: 20px;
+$badges-spacing-25: 25px;
+$badges-spacing-30: 30px;
+$badges-minus-spacing-5: -5px;
+
+/*-- Carousel --*/
+$slider-height: 150px;
+
+/*-- Tooltip & Popover --*/
+$tooltip-spacing-10: 10px;
+$tooltip-spacing-15: 15px;
+$tooltip-spacing-20: 20px;
+$tooltip-spacing-25: 25px;
+$tooltip-spacing-30: 30px;
+$tooltip-spacing-40: 40px;
+
+
+/*-- Mansonry --*/
+$masonry-spacing-5: 5px;
+$masonry-spacing-10: 10px;
+$masonry-spacing-15: 15px;
+
+/*-- Rating --*/
+$star-spacing-10: 10px;
+
+/*-- Lightbox --*/
+$lightbox-spacing-5: 5px;
+$lightbox-spacing-10: 10px;
+$lightbox-spacing-15: 15px;
+
+/*-- Pricing Table --*/
+$pricing-spacing-5: 5px;
+$pricing-spacing-10: 10px;
+$pricing-spacing-15: 15px;
+$pricing-spacing-20: 20px;
+$pricing-spacing-25: 25px;
+$pricing-spacing-30: 30px;
+$pricing-spacing-40: 40px;
+$pricing-spacing-55: 55px;
+$pricing-spacing-75: 75px;
+$pricing-spacing-80: 80px;
+$pricing-spacing-125: 125px;
+
+/*-- Bottom Spacing None --*/
+$bottom-spacing-none-mobile: -5px;
+$bottom-spacing-none-primary: -15px;
+$bottom-spacing-none-secondary: -10px;
+$bottom-spacing-none-normal: -20px;
+$bottom-spacing-none-spacing: -25px;
+
+/*-- Timeline --*/
+$timeline-main-date-width:200px;
+$timeline-right-item-top-margin:160px;
+
+/*-- Blockquote --*/
+$blockquote-spacing-5: 5px;
+$blockquote-spacing-10: 10px;
+$blockquote-spacing-15: 15px;
+$blockquote-spacing-20: 20px;
+$blockquote-spacing-25: 25px;
+$blockquote-spacing-30: 30px;
+$blockquote-spacing-35: 35px;
+$blockquote-spacing-40: 40px;
+$blockquote-spacing-45: 45px;
+$blockquote-spacing-80: 80px;
+$blockquote-minus-spacing-40: -40px;
+$blockquote-minus-spacing-5: -5px;
+$blockquote-minus-spacing-20: -20px;
+
+/*-- Navbar --*/
+$navbar-spacing-5: 5px;
+$navbar-spacing-10: 10px;
+$navbar-spacing-15: 15px;
+$navbar-spacing-25: 25px;
+$navbar-spacing-20: 20px;
+$navbar-spacing-30: 30px;
+$navbar-spacing-40: 40px;
+$navbar-spacing-50: 50px;
+
+
+/*-- Form layout --*/
+$layout-spacing-5: 5px;
+$layout-spacing-10: 10px;
+$layout-spacing-15: 15px;
+$layout-spacing-20: 20px;
+$layout-spacing-25: 25px;
+$layout-spacing-30: 30px;
+
+/*-- Form Wizard --*/
+$wizard-spacing-5: 5px;
+$wizard-spacing-10: 10px;
+$wizard-spacing-15: 15px;
+$wizard-spacing-20: 20px;
+
+/*-- eCommerce Dashboard --*/
+$ecommerce-height-310: 310px;
+$ecommerce-height-250: 250px;
+$ecommerce-height-380: 380px;
+
+/*-- Morris chart --*/
+$morris-chart-height-300: 300px;
+
+/*-- Border Radius --*/
+$border-radius-default: 0;
+$border-radius-full-round :0;
+$border-radius-tag-primary :0;
+$border-radius-tag-success: 0px;
+$border-radius-tag-warning: 0px;
+

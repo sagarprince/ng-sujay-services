@@ -1,0 +1,452 @@
+/*---- GLOBAL-CSS-START ----*/
+.btn {
+  font-size: 14px;
+  position: $position-relative;
+}
+
+.wrapper {
+  position: $position-relative;
+  height: 100%;
+}
+
+code {
+  background: $light-gray-background-color;
+  padding: 2px 5px;
+}
+
+#main {
+  padding-top: $header-height;
+  min-height: calc(100% - #{$header-height});
+}
+
+.form-control{
+  min-height: 35px;
+  line-height: 20px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+.tag {
+  font-size: 14px;
+  padding: 5px 10px 5px;
+}
+
+.flatpickr-input.form-control[readonly] {
+  background-color: #FFFFFF; 
+}
+
+.dataTables_wrapper > .form-control{
+  padding: 0 5px;
+}
+
+button:focus {
+  outline: none;
+}
+
+#sidebar {
+  position: $position-fixed;
+  height: calc(100% - #{$header-height});
+  background: $secondary-background-color;
+  width: $navigation-menu-width;
+  top: $header-height;
+  left: 0;
+  z-index: 999;
+}
+
+#content-wrapper {
+  margin-left: $navigation-menu-width;
+}
+
+.content {
+  background: $white-background-color;
+  @include border-radius($border-radius-4);
+  @include multi-box-shadow(rgba($black-background-color, 0.2) 0 0 4px);
+  margin: $spacing-20;
+  padding: $spacing-20;
+  border-top: 3px solid $site-primary-text-color;
+  overflow: hidden;
+}
+
+.content:hover {
+  @include multi-box-shadow(rgba($black-background-color, 0.64) 0 0 18px -10px);
+}
+
+.site-content-title {
+  background: $gray-background-color;
+  overflow: hidden;
+  position: relative;
+}
+
+.content-title-main {
+  padding-left: $spacing-20;
+  line-height: 60px;
+  font-weight: $semi-bold-text;
+  font-size: 22px;
+  color: $site-primary-text-color;
+
+  i.title-icon {
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    padding: 9px 0px 0px;
+    text-align: center;
+    display: inline-block;
+    background-color: $site-primary-text-color;
+    color: #FFFFFF;
+    font-size: 20px;
+  }
+
+  &.has-back-button {
+    padding-left: 70px;
+  }
+}
+
+.back-button {
+    width: 58px;
+    background-color: #677ed8;
+    height: 100%;
+    position: absolute;
+    color: #fff;
+    font-size: 50px;
+    padding: 3px 0px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.breadcrumb {
+  background: none;
+  padding: 9px 1rem;
+  margin: 0;
+  li {
+    padding-left: 0;
+  }
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  padding-left: 0;
+  padding-right: 10px;
+}
+
+.light-red-color {
+  background: $site-light-red-color;
+}
+
+.purple-color {
+  background: $site-purple-color;
+}
+
+.dodger-blue-color {
+  background: $site-dodger-blue-color;
+}
+
+.soft-orange-color {
+  background: $site-soft-orange-color;
+}
+
+.golden-color {
+  background: $site-golden-color;
+}
+
+.bright-pink-color {
+  background: $site-bright-pink-color;
+}
+
+.spice-color {
+  background: $site-spice-color;
+}
+
+#footer {
+  background: $gray-background-color;
+  bottom: 0;
+  float: right;
+  position: $position-relative;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  width: calc(100% - #{$footer-content-width});
+}
+
+.sidebar-collapsed #footer {
+  width: 100%;
+}
+
+.page-content-title {
+  font-size: 20px;
+}
+
+.modal-backdrop {
+  z-index: 9999;
+}
+
+.modal {
+  z-index: 99999;
+}
+
+.wrapper {
+  a.text-light-primary, .text-light-primary {
+    color: $primary-light-text !important;
+    a {
+      color: $primary-light-text !important;
+    }
+  }
+  a.text-light-warning, .text-light-warning {
+    color: $warning-light-text !important;
+    a {
+      color: $warning-light-text !important;
+    }
+  }
+  a.text-light-info, .text-light-info {
+    color: $info-light-text !important;
+    a {
+      color: $info-light-text !important;
+    }
+  }
+  a.text-light-danger, .text-light-danger {
+    color: $danger-light-text !important;
+    a {
+      color: $danger-light-text !important;
+    }
+  }
+  a.text-light-success, .text-light-success {
+    color: $success-light-text !important;
+    a {
+      color: $success-light-text !important;
+    }
+  }
+
+  /*----*/
+
+  .bg-light-primary {
+    background: $primary-light-background-color;
+  }
+
+  .bg-light-warning {
+    background: $warning-light-background-color;
+  }
+
+  .bg-light-info {
+    background: $info-light-background-color;
+  }
+
+  .bg-light-danger {
+    background: $danger-light-background-color;
+  }
+
+  .bg-light-success {
+    background: $success-light-background-color;
+  }
+}
+
+/*---- GLOBAL-CSS-END ----*/
+/*---- FONT-WEIGHT-START ----*/
+.light-fonts {
+  font-weight: $light-text;
+}
+
+.normal-fonts {
+  font-weight: $normal-text;
+}
+
+.bold-fonts {
+  font-weight: $bold-text;
+}
+
+/*---- FONT-WEIGHT-END ----*/
+/*---- SITE-CHECKBOX-START ----*/
+.checkbox-squared {
+  position: $position-relative;
+  input {
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  input[type="checkbox"] {
+    visibility: hidden;
+  }
+
+  label {
+    cursor: pointer;
+    position: $position-absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    background: $white-background-color;
+    border: 1px solid $light-gray-color;
+    @include border-radius($border-radius-0);
+    &:after {
+      opacity: 0;
+      content: '';
+      position: $position-absolute;
+      width: 12px;
+      height: 8px;
+      background: transparent;
+      top: 3px;
+      left: 3px;
+      border: 3px solid;
+      border-top: none;
+      border-right: none;
+      @include transform(rotate(-45deg));
+    }
+  }
+
+  input[type=checkbox]:checked + label:after {
+    opacity: 1;
+    border-color: $site-primary-text-color;
+  }
+}
+
+.radio-button {
+  position: $position-relative;
+  input {
+    margin-right: 10px;
+    float: $left-division;
+  }
+
+  input[type="radio"] {
+    visibility: hidden;
+  }
+
+  input[type=radio]:checked + label:after {
+    background: #039be5;
+  }
+
+  label {
+    cursor: pointer;
+    position: $position-absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    background: $white-background-color;
+    border: 1px solid $light-gray-color;
+    border-radius: 18px;
+    &:after {
+      position: $position-absolute;
+      display: block;
+      content: "";
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      margin: -4px 0 0 -4px;
+      border-radius: 8px;
+    }
+  }
+}
+
+/*---- SITE-CHECKBOX-END ----*/
+
+//button
+
+.btn {
+  border: 0 none!important;
+}
+
+.btn-primary {
+  background: $primary-background-color;
+  border: solid 1px $primary-background-color;
+  &.active {
+    background: $primary-background-color;
+    border: solid 1px $primary-background-color;
+    &.focus, &:focus, &:hover {
+      background: $primary-background-color;
+      border: solid 1px $primary-background-color;
+    }
+  }
+  &:active {
+    &.focus, &:focus, &:hover {
+      background: $primary-background-color;
+      border: solid 1px $primary-background-color;
+    }
+  }
+  &:hover, &:focus, &:active {
+    background: $primary-background-color;
+    border: solid 1px $primary-background-color;
+  }
+}
+
+.wrapper {
+  .btn-primary {
+    position: $position-relative;
+  }
+}
+
+/*---- START PAGE LOADER ----*/
+
+.loader-overlay {
+  display: none;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99999;
+}
+
+.loader-preview-area {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 60px;
+  right: 0;
+  margin: auto;
+}
+
+.spinners {
+  width: 100%;
+  padding: 0;
+  .loader {
+    height: 60px;
+    width: 60px;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    opacity: 0;
+    display: inline-block;
+    position: relative;
+  }
+  .loader {
+    opacity: 1
+  }
+}
+
+.rotating-plane {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #FFF;
+  margin: 0 auto;
+  @include animation(rotateplane 1.2s infinite ease-in-out);
+}
+
+@include keyframes(rotateplane) {
+  0% {
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+  }
+  50% {
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+  }
+  100% {
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg)
+  }
+}
+
+//body.loaded {
+//  .loader-overlay {
+//    opacity: 0;
+//    visibility: hidden;
+//  }
+//}
+
+/*---- END PAGE LOADER ----*/

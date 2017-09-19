@@ -1,0 +1,38 @@
+<app-header-title title="Master" icon="icon_archive_alt" *ngIf="showHeader"></app-header-title>
+
+<div [class.content]="inModel == 'false'">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="add-item-btn float-xs-right" *ngIf="addNewOrderBtn">
+                <a class="btn btn-primary site-btn" [routerLink]="['item/add']">
+                    <i class="icon icon_plus"></i> Add Item
+                </a>
+            </div>
+
+            <div class="divider15"></div>
+
+            <data-tables [rows]="items" [columns]="columns" [showActionColumn]="showActionColumn" 
+            [showRowCheckbox]="showRowCheckbox" [singleRowSelect]="singleRowSelect" [checkboxValueKey]="checkboxValueKey"
+            [showSearchBox]="showSearchBox" [isAjax]="isAjax" 
+            [pagesCount]="pagesCount" [currentPage]="currentPage" [isLoading]="isLoading"
+            (paginateRecords)="paginateRecords($event)" 
+            (filterRecords)="filterRecords($event)"
+            (refreshRecords)="refreshMasterItems()" 
+            (editRecord)="editItem($event)" (deleteRecord)="deleteItem($event)"
+            (selectedRows)="selectedItems($event)">
+                <div class="search-filters row" custom-filters>
+                    <div class="col-sm-4 col-xl-4">
+                        <div class="inner">                
+                            <input type="text" class="form-control" [(ngModel)]="itemCode" placeholder="Item Code" autocomplete="false" data-prop="item_code" #searchRecordsInputs />
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xl-4">
+                        <div class="inner">                
+                            <input type="text" class="form-control" [(ngModel)]="itemName" placeholder="Item Name" autocomplete="false" data-prop="item_name" #searchRecordsInputs />
+                        </div>
+                    </div>
+                </div>
+            </data-tables>
+        </div>
+    </div>
+</div>

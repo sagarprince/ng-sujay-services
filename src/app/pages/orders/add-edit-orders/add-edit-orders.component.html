@@ -1,0 +1,92 @@
+<app-header-title [title]="headerTitle" icon="ti-package" backButton="yes" backLink="orders"></app-header-title>
+
+<div class="content-wrap offset-xs-1 col-xs-10 offset-sm-1 col-sm-10 offset-md-2 col-md-8 offset-xl-3 col-xl-6 animated slideInLeft">
+
+    <form (ngSubmit)="saveOrder(orderForm)" novalidate [formGroup]="orderForm" *ngIf="loading == false">
+      <div class="row">
+          <div class="col-xl-12">           
+              
+                <div class="form-field">
+                  <label>WP JOB NO.*</label>
+                  <div class="form-group">                      
+                      <div class="input-group" [class.input-right-icon]="mode == 'add'" [class.danger-input]="!orderForm.controls.order_job_no.valid && orderForm.dirty" [class.success-input]="orderForm.controls.order_job_no.valid && !orderForm.controls.order_job_no.pristine">
+                        <input class="form-control" type="text" formControlName="order_job_no" [readonly]="mode == 'edit'" />
+                        <span class="input-group-addon" *ngIf="mode == 'add'"><i class="fa fa-check" [class.fa-check]="orderForm.controls.order_job_no.valid && !orderForm.controls.order_job_no.pristine" [class.fa-times]="!orderForm.controls.order_job_no.valid && orderForm.dirty"></i></span>
+                      </div>
+                      <span class="help-block form-error slideInDown animated" *ngIf="!orderForm.controls.order_job_no.valid && orderForm.dirty">Required Field.</span>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label>Item Code*</label>
+                  <div class="form-group">
+                    <div class="input-group input-right-icon" [class.danger-input]="!orderForm.controls.order_item_code.valid && orderForm.dirty" [class.success-input]="orderForm.controls.order_item_code.valid && !orderForm.controls.order_item_code.pristine">
+                      <input class="form-control order-item-code" type="text" formControlName="order_item_code" readonly (click)="addItem()" />
+                      <span class="input-group-addon" *ngIf="mode == 'add'"><i class="fa fa-check" [class.fa-check]="orderForm.controls.order_item_code.valid && !orderForm.controls.order_item_code.pristine" [class.fa-times]="!orderForm.controls.order_item_code.valid && orderForm.dirty"></i></span>
+                    </div>
+                    <span class="help-block form-error slideInDown animated" *ngIf="!orderForm.controls.order_item_code.valid && orderForm.dirty">Required Field.</span>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label>Quantity*</label>
+                  <div class="form-group">
+                    <div class="input-group input-right-icon" [class.danger-input]="!orderForm.controls.order_quantity.valid && orderForm.dirty" [class.success-input]="orderForm.controls.order_quantity.valid && !orderForm.controls.order_quantity.pristine">
+                      <input class="form-control" type="number" formControlName="order_quantity" />
+                      <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="orderForm.controls.order_quantity.valid && !orderForm.controls.order_quantity.pristine" [class.fa-times]="!orderForm.controls.order_quantity.valid && orderForm.dirty"></i></span>
+                    </div>
+                    <span class="help-block form-error slideInDown animated" *ngIf="!orderForm.controls.order_quantity.valid && orderForm.dirty">Required Field.</span>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label>Date*</label>                  
+                  <div class="form-group date-picker-wrap">
+                      <div class="input-group date" [class.danger-input]="!orderForm.controls.order_date.valid && orderForm.dirty" [class.success-input]="orderForm.controls.order_date.valid && !orderForm.controls.order_date.pristine">
+                          <input type="text" class="form-control" formControlName="order_date" datePicker />
+                          <span class="input-group-addon date-icon">
+                              <i class="icon icon_calendar"></i>
+                          </span>
+                      </div>
+                      <span class="help-block form-error slideInDown animated" *ngIf="!orderForm.controls.order_date.valid && orderForm.dirty">Required Field.</span>
+                  </div>
+                </div>
+
+                <input type="hidden" formControlName="id" />
+              
+          </div>
+
+          <div class="col-xl-12">
+              <div class="button-item-add-edit text-xs-right">
+                  <button class="btn btn-success site-btn" type="submit" [disabled]="waitFlag"><i class="fa fa-check"></i> Save</button>
+                  <button class="btn btn-danger site-btn" type="button" [disabled]="waitFlag" *ngIf="mode == 'edit'" (click)="deleteOrder()"><i class="fa fa-trash-o"></i> Delete</button>
+              </div>
+          </div>
+      </div>
+    </form>
+
+    <div class="loading-wrap" *ngIf="loading == true">
+      <div class="loader">
+          <svg class="circular" viewBox="25 25 50 50">
+              <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+          </svg>          
+      </div>
+      <h3>Loading Please Wait...</h3>
+    </div>
+</div>
+
+<div class="modal fade masterItemsModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="masterItemsModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-xs-center" id="masterItemsModalTitle">MASTER ITEMS</h5>
+      </div>
+      <div class="modal-body">
+        <app-master inModel="true" [showHeader]="showItemsHeader" [addNewItemBtn]="addNewItemBtn" 
+        [showRowCheckbox]="showItemsRowCheckbox" [showActionColumn]="showItemsActionColumn" 
+        (selectedItems)="selectedItems($event)"></app-master>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">CLOSE</button>
+        <button type="button" class="btn btn-primary" (click)="addSelectedItem()">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

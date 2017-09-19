@@ -1,0 +1,15 @@
+@import "../../../styles/_variables_mixins";
+
+.nr-enterprise {
+    background-color: $site-dodger-blue-color;
+}
+
+.bsp-enterprise {
+    background-color: $site-purple-color;
+}
+
+.open-link {
+    margin-top: 30px;
+    text-decoration: none;
+    outline: none;
+}

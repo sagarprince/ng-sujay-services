@@ -1,0 +1,272 @@
+/*----------------------------------------------
+
+START STATIC-WIDGET-PAGE
+
+------------------------------------------------*/
+.contain-inner {
+  &.static-widget-content {
+    margin-top: $spacing-0;
+  }
+}
+
+.static-widget-content {
+  margin-bottom: $spacing-30;
+  .content {
+    margin: $spacing-20 $spacing-0 $spacing-0 $spacing-0;
+  }
+  .widget-progress {
+    .progress {
+      height: 10px;
+      background-color: rgba(238, 238, 238, 0.33);
+      margin-bottom: $spacing-5;
+      @include multi-box-shadow(rgba($black-background-color, 0.1) 0 1px 2px inset);
+    }
+    .progress-bar {
+      height: 100%;
+      background-color: $white-background-color;
+      @include transition(width 0.6s ease);
+    }
+    .progress-bar-30, .progress-bar-15, .progress-bar-60 {
+      width: 0%;
+    }
+    &:hover .progress-bar-30 {
+      width: 30%;
+    }
+    &:hover .progress-bar-15 {
+      width: 15%;
+    }
+    &:hover .progress-bar-60 {
+      width: 60%;
+    }
+  }
+  .userlist-content {
+    .widget-box.userlist-box {
+      margin-bottom: $spacing-0;
+    }
+  }
+  .alert-icon-corner {
+    margin: $spacing-15 $spacing-0;
+  }
+}
+
+.widget-box {
+  position: $position-relative;
+  border: 1px solid $light-gray-color;
+  display: block;
+  overflow: hidden;
+  .icon-spacing {
+    margin-right: $spacing-10;
+  }
+}
+
+.widget-margin {
+  margin-bottom: $spacing-15;
+}
+
+.widget-content {
+  padding: $spacing-20;
+  overflow: hidden;
+}
+
+.bg-icon, .bg-icon-left {
+  position: $position-absolute;
+  top: 33%;
+  margin-top: -20px;
+  i {
+    font-size: 40px;
+    opacity: .5;
+  }
+}
+
+.bg-icon {
+  right: 20px;
+}
+
+.bg-icon-left {
+  left: 20px;
+}
+
+.text-secondary {
+  color: $secondary-text-color;
+}
+
+.widget-info {
+  color: $secondary-text-color;
+  h6 {
+    margin-bottom: $spacing-5;
+  }
+  progress {
+    margin-bottom: $spacing-5;
+  }
+}
+
+.userlist-content {
+  .widget-box {
+    &.userlist-box {
+      margin: $spacing-0 $spacing-0 $spacing-20 $spacing-0;
+      border: 1px solid $light-gray-color;
+      padding: $spacing-20;
+    }
+  }
+}
+
+.offer-widget {
+  color: $secondary-text-color;
+}
+
+.sale-offer-icon {
+  position: $position-absolute;
+  top: 10px;
+  right: 10px;
+  margin-bottom: $spacing-10;
+}
+
+.sale-offer-icon {
+  position: $position-absolute;
+  top: 10px;
+  right: 10px;
+  margin-bottom: $spacing-10;
+}
+
+.sale-offer-detail {
+  margin-top: $spacing-25;
+  p {
+    padding-bottom: $spacing-10;
+  }
+}
+
+.widget-primary {
+  .alert {
+    background-color: $white-background-color;
+  }
+}
+
+.square-icon {
+  width: 90px;
+  height: 90px;
+  span {
+    i {
+      line-height: 80px;
+      font-size: 32px;
+      color: $static-icon-color;
+    }
+  }
+}
+
+.static-header {
+  padding: $spacing-10 $spacing-20;
+}
+
+.static-detail-icon {
+  font-size: 35px;
+  position: $position-absolute;
+  left: 20px;
+}
+
+.image-static-widget {
+  margin-bottom: $bottom-spacing-none-primary;
+  display: table;
+  width: 100%;
+  .widget-box {
+    margin-bottom: $spacing-15;
+  }
+}
+/*----------------------------------------------
+
+END STATIC-WIDGET-PAGE
+
+------------------------------------------------*/
+
+/*---- START STATIC-WIDGET-PAGE RESPONSIVE ----*/
+
+@media (min-width: 1200px) and (max-width: 1600px) {
+  .static-widget-content {
+    .widget-progress {
+      margin-bottom: $spacing-15;
+    }
+    .static-widget-box {
+      margin-bottom: $bottom-spacing-none-primary;
+      display: table;
+      width: 100%;
+    }
+  }
+  .xl-box-static-widget {
+    width: 50%;
+  }
+  .divider-xl-static-widget {
+    height: 15px;
+    clear: both;
+  }
+  .xl-offer-static-widget {
+    width: 100%;
+  }
+}
+
+@media (max-width: $media-lg-width) {
+  .widget-margin {
+    margin-bottom: $spacing-15;
+  }
+  .static-widget-content {
+    .alert-icon-corner {
+      margin: $spacing-25 $spacing-0;
+    }
+    .alert {
+      margin-bottom: $spacing-25;
+    }
+    .widget-progress {
+      margin-bottom: $spacing-15;
+    }
+    .static-widget-box {
+      margin-bottom: $bottom-spacing-none-primary;
+      display: table;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: $media-sm-width) {
+  .widget-sm-margin {
+    margin-bottom: $spacing-20;
+  }
+  .userlist-content {
+    margin-bottom: $spacing-20;
+  }
+  .last-userlist-content {
+    margin-bottom: $spacing-0;
+  }
+  .divider-sm-box {
+    height: $spacing-25;
+  }
+  .invoices-box{
+    margin-bottom: $spacing-15;
+  }
+}
+
+@media (max-width: $media-xs-width) {
+  .square-icon {
+    width: 75px;
+    height: 75px;
+    span {
+      i {
+        line-height: 70px;
+      }
+    }
+  }
+  .sale-offer-detail {
+    h2 {
+      font-size: 25px;
+    }
+  }
+  .widget-progress {
+    h6 {
+      font-size: 14px;
+    }
+  }
+  .circle-widget-detail, .counter-widget, .widget-progress {
+    h4 {
+      font-size: 20px;
+    }
+  }
+}
+
+/*---- END STATIC-WIDGET-PAGE RESPONSIVE ----*/

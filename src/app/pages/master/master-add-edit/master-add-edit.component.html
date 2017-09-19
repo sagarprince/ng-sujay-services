@@ -1,0 +1,70 @@
+<app-header-title [title]="headerTitle" icon="ti-package" backButton="yes" backLink="master"></app-header-title>
+
+<div class="content-wrap offset-xs-1 col-xs-10 offset-sm-1 col-sm-10 offset-md-2 col-md-8 offset-xl-3 col-xl-6 animated slideInLeft">
+    <form (ngSubmit)="saveItem(masterItemForm)" novalidate [formGroup]="masterItemForm" *ngIf="loading == false">
+      <div class="row">
+          <div class="col-xl-12">           
+              
+                <div class="form-field">
+                  <label>Item Code*</label>
+                  <div class="form-group">                      
+                      <div class="input-group" [class.input-right-icon]="mode == 'add'" [class.danger-input]="!masterItemForm.controls.item_code.valid && masterItemForm.dirty" [class.success-input]="masterItemForm.controls.item_code.valid && !masterItemForm.controls.item_code.pristine">
+                        <input class="form-control" type="text" formControlName="item_code" [readonly]="mode == 'edit'" />
+                        <span class="input-group-addon" *ngIf="mode == 'add'"><i class="fa fa-check" [class.fa-check]="masterItemForm.controls.item_code.valid && !masterItemForm.controls.item_code.pristine" [class.fa-times]="!masterItemForm.controls.item_code.valid && masterItemForm.dirty"></i></span>
+                      </div>
+                      <span class="help-block form-error slideInDown animated" *ngIf="!masterItemForm.controls.item_code.valid && masterItemForm.dirty">Required Field.</span>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label>Item Name*</label>
+                  <div class="form-group">
+                    <div class="input-group input-right-icon" [class.danger-input]="!masterItemForm.controls.item_name.valid && masterItemForm.dirty" [class.success-input]="masterItemForm.controls.item_name.valid && !masterItemForm.controls.item_name.pristine">
+                      <input class="form-control" type="text" formControlName="item_name" />
+                      <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="masterItemForm.controls.item_name.valid && !masterItemForm.controls.item_name.pristine" [class.fa-times]="!masterItemForm.controls.item_name.valid && masterItemForm.dirty"></i></span>
+                    </div>
+                    <span class="help-block form-error slideInDown animated" *ngIf="!masterItemForm.controls.item_name.valid && masterItemForm.dirty">Required Field.</span>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label>Quantity*</label>
+                  <div class="form-group">
+                    <div class="input-group input-right-icon" [class.danger-input]="!masterItemForm.controls.item_quantity.valid && masterItemForm.dirty" [class.success-input]="masterItemForm.controls.item_quantity.valid && !masterItemForm.controls.item_quantity.pristine">
+                      <input class="form-control" type="number" formControlName="item_quantity" />
+                      <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="masterItemForm.controls.item_quantity.valid && !masterItemForm.controls.item_quantity.pristine" [class.fa-times]="!masterItemForm.controls.item_quantity.valid && masterItemForm.dirty"></i></span>
+                    </div>
+                    <span class="help-block form-error slideInDown animated" *ngIf="!masterItemForm.controls.item_quantity.valid && masterItemForm.dirty">Required Field.</span>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label>Rate*</label>
+                  <div class="form-group">
+                    <div class="input-group input-right-icon" [class.danger-input]="!masterItemForm.controls.item_rate.valid && masterItemForm.dirty" [class.success-input]="masterItemForm.controls.item_rate.valid && !masterItemForm.controls.item_rate.pristine">
+                      <input class="form-control" type="number" step="0.1" formControlName="item_rate" />
+                      <span class="input-group-addon"><i class="fa fa-check" [class.fa-check]="masterItemForm.controls.item_rate.valid && !masterItemForm.controls.item_rate.pristine" [class.fa-times]="!masterItemForm.controls.item_rate.valid && masterItemForm.dirty"></i></span>
+                    </div>
+                    <span class="help-block form-error slideInDown animated" *ngIf="!masterItemForm.controls.item_rate.valid && masterItemForm.dirty">Required Field.</span>
+                  </div>
+                </div>
+
+                <input type="hidden" formControlName="id" />
+              
+          </div>
+
+          <div class="col-xl-12">
+              <div class="button-item-add-edit text-xs-right">
+                  <button class="btn btn-success site-btn" type="submit" [disabled]="waitFlag"><i class="fa fa-check"></i> Save</button>
+                  <button class="btn btn-danger site-btn" type="button" [disabled]="waitFlag" *ngIf="mode == 'edit'" (click)="deleteItem()"><i class="fa fa-trash-o"></i> Delete</button>
+              </div>
+          </div>
+      </div>
+    </form>
+
+    <div class="loading-wrap" *ngIf="loading == true">
+      <div class="loader">
+          <svg class="circular" viewBox="25 25 50 50">
+              <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+          </svg>          
+      </div>
+      <h3>Loading Please Wait...</h3>
+    </div>
+</div>

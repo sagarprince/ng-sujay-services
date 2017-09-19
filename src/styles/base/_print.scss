@@ -1,0 +1,19 @@
+@media print {
+    app-header, app-sidebar, app-header-title, #footer {
+        display: none!important;
+    }
+    #content-wrapper {
+        margin-left: 0px!important;
+        width: 100%!important;
+    }
+    .content-wrap {
+        margin: 0px!important;
+        padding: 0px!important;
+        border: 0 none!important;
+        width: 100%!important;
+    }
+
+    .content-wrap .action-row {
+        display: none!important;
+    }
+}

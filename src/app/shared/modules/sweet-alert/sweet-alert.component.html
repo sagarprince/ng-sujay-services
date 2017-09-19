@@ -1,0 +1,43 @@
+<div class="sweet-overlay" tabIndex="-1" #sweetAlertOverlay></div>
+
+<div class="sweet-alert showSweetAlert" [attr.data-animation]="animationType" [class.confirm-sweet-alert]="isConfirm" #sweetAlert>
+
+  <!-- Success Icon -->
+  <div class="sa-icon sa-success animate" *ngIf="type == 'success'">
+    <span class="sa-line sa-tip animateSuccessTip"></span>
+    <span class="sa-line sa-long animateSuccessLong"></span>
+
+    <div class="sa-placeholder"></div>
+    <div class="sa-fix"></div>
+  </div>
+
+  <!-- Error Icon -->
+  <div class="sa-icon sa-error" *ngIf="type == 'error'">
+    <span class="sa-x-mark">
+      <span class="sa-line sa-left"></span>
+      <span class="sa-line sa-right"></span>
+    </span>
+  </div>
+
+  <!-- Warning Icon -->
+  <div class="sa-icon sa-warning" *ngIf="type == 'warning'">
+    <span class="sa-body"></span>
+    <span class="sa-dot"></span>
+  </div>
+
+  <!-- Info Icon -->
+  <div class="sa-icon sa-info" *ngIf="type == 'info'"></div>
+
+  <!-- Title -->
+  <h2>{{title}}</h2>
+
+  <!-- Message -->
+  <p>{{message}}</p>
+
+  <button class="cancel" tabindex="2" *ngIf="showCancelButton" (click)="onCancel()">{{cancelButtonText}}</button>
+
+  <div class="sa-confirm-button-container">
+    <button class="confirm" tabIndex="1" (click)="onOk()">{{okButtonText}}</button>
+  </div>
+
+</div>

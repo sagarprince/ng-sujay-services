@@ -1,0 +1,79 @@
+<div class="table-filter-row">
+    <div class="row">
+        <div class="col-sm-3 col-xl-3" *ngIf="showSearchBox">
+            <div class="inner">                
+                <input type="text" class="form-control" value="" placeholder="Search" autocomplete="false" [(ngModel)]="searchInput" />
+            </div>
+        </div>
+
+        <div class="custom-filters-col" [class.col-sm-9]="showSearchBox" [class.col-xl-9]="showSearchBox" [class.col-sm-12]="!showSearchBox" [class.col-xl-12]="!showSearchBox">
+            <ng-content select="[custom-filters]"></ng-content>
+        </div>         
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 text-xs-right filter-refresh-btn-wrap">
+            <div class="inner">                
+                <button class="btn btn-info filter-btn" (click)="filterRecords()">Filter</button>
+                <button class="btn btn-success refresh-btn" (click)="refresh()"><i class="fa fa-refresh"></i></button>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div class="basic_table">    
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th class="select-row-th" *ngIf="showRowCheckbox">
+                    <div class="checkbox-squared">
+                        <input value="all" id="all-checkboxes" type="checkbox" disabled>
+                        <label for="all-checkboxes"></label>
+                    </div>
+                </th>
+                <th *ngFor="let column of columns" [attr.id]="column.key">{{column.title}}</th>
+                <th *ngIf="showActionColumn">ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of rows">
+                <td class="select-row" *ngIf="showRowCheckbox">
+                    <div class="checkbox-squared" *ngIf="!singleRowSelect">
+                        <input [value]="row[checkboxValueKey]" id="checkbox-squared-{{row.id}}" type="checkbox" (change)="getCheckedRows($event, row[checkboxValueKey])">
+                        <label for="checkbox-squared-{{row.id}}"></label>
+                    </div>
+                    <div class="radio-button" *ngIf="singleRowSelect">
+                        <input [value]="row[checkboxValueKey]" id="radio-button-{{row.id}}" type="radio" (change)="getCheckedRows($event, row[checkboxValueKey])">
+                        <label for="radio-button-{{row.id}}"></label>
+                    </div>
+                </td>
+                <td *ngFor="let column of columns" [innerHTML]="row[column.key]">
+                    <!--{{row[column.key]}}-->
+                </td>
+                <td class="action-td" *ngIf="showActionColumn">
+                    <button class="btn btn-success" (click)="edit(row.id)"><i class="ti-pencil-alt"></i></button>
+                    <button class="btn btn-danger" (click)="delete(row.id)"><i class="ti-trash"></i></button>
+                </td>                
+            </tr>    
+
+            <tr *ngIf="rows.length == 0 && loading == false">
+                <td class="no-records-row" [attr.colspan]="columns.length + columnsCount">
+                    No Records Found !!!
+                </td>
+            </tr>
+
+            <tr *ngIf="loading">
+                <td class="loading-wait-row" [attr.colspan]="columns.length + columnsCount">
+                    <div class="loader">
+                        <svg class="circular" viewBox="25 25 50 50">
+                            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                        </svg>          
+                    </div>
+                    <h3>Loading Please Wait...</h3>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<data-table-pagination [pagesCount]="pagesCount" [currentPage]="currentPage" (paginateRecords)="paginateRecords($event)"></data-table-pagination>

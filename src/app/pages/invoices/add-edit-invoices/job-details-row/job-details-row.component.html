@@ -1,0 +1,98 @@
+<td class="text-xs-center padding-all-side border-left-none">
+  {{srNo+1}}<br/>
+  <button class="btn btn-danger site-btn" type="button" style="width: 30px; height: 30px; border-radius: 100%; padding: 0px;" (click)="removeJob(srNo)" *ngIf="!viewMode"><i class="fa fa-close"></i></button>
+</td>
+<td class="text-xs-center service_description" [formGroup]="job">
+  <div class="item_code">
+    <span *ngIf="viewMode">{{job.controls.item_code.value}}</span>
+    <div class="form-group" *ngIf="!viewMode">                      
+        <div class="input-group" [class.danger-input]="!job.controls.item_code.valid && invoiceForm.dirty" [class.success-input]="job.controls.item_code.valid && !job.controls.item_code.pristine">
+          <input class="form-control text-xs-center" type="text" placeholder="ITEM CODE" formControlName="item_code" />
+        </div>
+    </div>
+  </div>
+  <div class="item_name">
+    <span *ngIf="viewMode">{{job.controls.item_name.value}}</span>
+    <div class="form-group" *ngIf="!viewMode">                      
+        <div class="input-group" [class.danger-input]="!job.controls.item_name.valid && invoiceForm.dirty" [class.success-input]="job.controls.item_name.valid && !job.controls.item_name.pristine">
+          <input class="form-control text-xs-center" type="text" placeholder="ITEM NAME" formControlName="item_name" />
+        </div>
+    </div>
+  </div>
+  <div class="job_no">
+    <span *ngIf="viewMode">{{job.controls.job_no.value}}</span>
+    <div class="form-group" *ngIf="!viewMode">                      
+        <div class="input-group" [class.danger-input]="!job.controls.job_no.valid && invoiceForm.dirty" [class.success-input]="job.controls.job_no.valid && !job.controls.job_no.pristine">
+          <input class="form-control text-xs-center" type="text" placeholder="JOB NO." formControlName="job_no" />
+        </div>
+    </div>
+  </div>
+</td>
+<td class="text-xs-center padding-all-side" [formGroup]="job">
+  <span *ngIf="viewMode">{{job.controls.sac_code.value}}</span>
+  <div class="form-group" *ngIf="!viewMode">                      
+      <div class="input-group">
+        <input class="form-control text-xs-center" type="text" formControlName="sac_code" />                              
+      </div>
+  </div>
+</td>
+<td class="text-xs-center padding-all-side" [formGroup]="job">
+  <span *ngIf="viewMode">{{job.controls.qty.value}}</span>
+  <div class="form-group" *ngIf="!viewMode">                      
+      <div class="input-group" [class.danger-input]="!job.controls.qty.valid && invoiceForm.dirty" [class.success-input]="job.controls.qty.valid && !job.controls.qty.pristine">
+        <input class="form-control text-xs-center" type="number" step="0.1" formControlName="qty" />
+      </div>
+  </div>
+</td>
+<td class="text-xs-center padding-all-side" [formGroup]="job">
+  <span *ngIf="viewMode">{{job.controls.nos.value}}</span>
+  <div class="form-group" *ngIf="!viewMode">                      
+      <div class="input-group">
+        <input class="form-control text-xs-center" type="text" formControlName="nos" />                              
+      </div>
+  </div>
+</td>
+<td class="text-xs-center padding-all-side" [formGroup]="job">
+  <span *ngIf="viewMode">{{job.controls.rate.value}}</span>
+  <div class="form-group" *ngIf="!viewMode">                      
+      <div class="input-group" [class.danger-input]="!job.controls.rate.valid && invoiceForm.dirty" [class.success-input]="job.controls.rate.valid && !job.controls.rate.pristine">
+        <input class="form-control text-xs-center" type="number" step="0.1" formControlName="rate" />
+      </div>
+  </div>
+</td>
+<td class="text-xs-center padding-all-side" [formGroup]="job">
+  {{calculateTotal() | number: '.2-2'}}
+</td>
+<td class="text-xs-center padding-all-side" [formGroup]="job">
+  {{calculateTotal() | number: '.2-2'}}
+  <input type="hidden" formControlName="taxable_total" />
+</td>
+<td class="text-xs-center padding-all-side" [formGroup]="job">
+  <span *ngIf="viewMode">{{job.controls.cgst.value}}%</span>
+  <div class="form-group" *ngIf="!viewMode">                      
+      <div class="input-group" [class.danger-input]="!job.controls.cgst.valid && invoiceForm.dirty" [class.success-input]="job.controls.cgst.valid && !job.controls.cgst.pristine">
+        <input class="form-control text-xs-center" type="number" step="0.1" formControlName="cgst" />
+      </div>
+  </div>
+</td>
+<td class="text-xs-center padding-all-side" [formGroup]="job">
+  {{calculateCGst() | number: '.2-2'}}
+  <input type="hidden" formControlName="cgst_amount" />
+</td>
+<td class="text-xs-center padding-all-side" [formGroup]="job">
+  <span *ngIf="viewMode">{{job.controls.sgst.value}}%</span>
+  <div class="form-group" *ngIf="!viewMode">                      
+      <div class="input-group" [class.danger-input]="!job.controls.sgst.valid && invoiceForm.dirty" [class.success-input]="job.controls.sgst.valid && !job.controls.sgst.pristine">
+        <input class="form-control text-xs-center" type="number" step="0.1" formControlName="sgst" />
+      </div>
+  </div>
+</td>
+<td class="text-xs-center padding-all-side" [formGroup]="job">
+  {{calculateSGst() | number: '.2-2'}}
+  <input type="hidden" formControlName="sgst_amount" />
+</td>
+<td class="text-xs-center padding-all-side border-right-none" [formGroup]="job">
+  {{calculateTotalWithGst() | number: '.2-2'}}
+  <input type="hidden" formControlName="gst_calculated_amount" />
+</td>
+

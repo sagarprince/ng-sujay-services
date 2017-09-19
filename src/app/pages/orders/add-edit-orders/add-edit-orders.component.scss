@@ -1,0 +1,18 @@
+.content-wrap {
+    background: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 4px;
+    padding: 30px 20px 20px;
+    border-top: 3px solid #087380;
+    overflow: visible;
+    margin-top: 25px;
+
+    .alerts-message-wrap {
+        overflow: hidden;
+    }
+
+    .order-item-code {
+        background-color: transparent;
+        cursor: pointer;
+    }
+}

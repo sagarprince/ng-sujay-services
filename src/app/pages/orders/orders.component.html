@@ -1,0 +1,51 @@
+<app-header-title title="Orders" icon="fa fa-file-text" *ngIf="showHeader"></app-header-title>
+
+<div [class.content]="inModel == 'false'">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="add-order-btn float-xs-right" *ngIf="addNewOrderBtn">
+                <a class="btn btn-primary site-btn" [routerLink]="['order/add']">
+                    <i class="icon icon_plus"></i> Add New Order
+                </a>
+            </div>
+
+            <div class="divider15"></div>
+
+            <data-tables [rows]="orders" [columns]="columns" [showActionColumn]="showActionColumn" 
+            [showRowCheckbox]="showRowCheckbox" [singleRowSelect]="singleRowSelect"
+            [showSearchBox]="showSearchBox" [isAjax]="isAjax" 
+            [pagesCount]="pagesCount" [currentPage]="currentPage" [isLoading]="isLoading"
+            (paginateRecords)="paginateRecords($event)" 
+            (filterRecords)="filterRecords($event)"
+            (refreshRecords)="refreshOrders()" (editRecord)="editOrder($event)" (deleteRecord)="deleteOrder($event)"
+            (selectedRows)="selectedOrders($event)">
+                <div class="search-filters row" custom-filters>
+                    <div class="col-sm-3 col-xl-3">
+                        <div class="inner">                
+                            <input type="text" class="form-control" [(ngModel)]="orderJobNo" placeholder="Order Job No" autocomplete="false" data-prop="order_job_no" #searchRecordsInputs />
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xl-3">
+                        <div class="inner">                
+                            <input type="text" class="form-control" [(ngModel)]="orderItemCode" placeholder="Item Code" autocomplete="false" data-prop="order_item_code" #searchRecordsInputs />
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xl-3">
+                        <div class="inner">                
+                            <input type="text" class="form-control" [(ngModel)]="orderDate" placeholder="Order Date" autocomplete="false" data-prop="order_date" datePicker [allowInput]="editableDatePicker" #searchRecordsInputs />
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xl-3">
+                        <div class="inner">                
+                            <select class="form-control" [(ngModel)]="orderStatus" data-prop="order_status" #searchRecordsInputs>
+                                <option value="">All Order Status</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </data-tables>
+        </div>
+    </div>
+</div>
