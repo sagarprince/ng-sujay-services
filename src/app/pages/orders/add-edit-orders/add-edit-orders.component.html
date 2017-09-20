@@ -40,7 +40,7 @@
                   <label>Date*</label>                  
                   <div class="form-group date-picker-wrap">
                       <div class="input-group date" [class.danger-input]="!orderForm.controls.order_date.valid && orderForm.dirty" [class.success-input]="orderForm.controls.order_date.valid && !orderForm.controls.order_date.pristine">
-                          <input type="text" class="form-control" formControlName="order_date" datePicker />
+                          <input type="text" class="form-control" formControlName="order_date" <input type="text" class="form-control" formControlName="order_date" datePicker dateFormat="h:i K" enableTime="true" noCalendar="true" /> />
                           <span class="input-group-addon date-icon">
                               <i class="icon icon_calendar"></i>
                           </span>

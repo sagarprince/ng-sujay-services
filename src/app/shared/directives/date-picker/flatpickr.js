@@ -2242,7 +2242,7 @@ flatpickr.defaultConfig = FlatpickrInstance.defaultConfig = {
 	hourIncrement: 1,
 
 	// step size used when scrolling/incrementing the minute element
-	minuteIncrement: 5,
+	minuteIncrement: 1,
 
 	// initial value in the hour element
 	defaultHour: 12,
